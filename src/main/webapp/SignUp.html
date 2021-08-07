@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title>SignUp Form</title>
 <meta charset="utf-8">
@@ -10,71 +10,91 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.table {
+	width: 100%;
+	margin: 100px;
+	border: 150px;
+	padding: 50px;
+}
+
+#submitButton, #resetButton {
+	background-color: rgb(119, 226, 221);
+	text-align: left;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<h2>Signup Form :ERS Application</h2>
-		<h1 id="abc"></h1>
+<center>
+	<div class="Signup">
+	<h2>Sign up</h2>
 		<form action="">
 			<table class="table table-hover">
-				<thead>
-					<tr>
-						<td>First name</td>
-						<td colspan="2"><Input id="a1" type="text" name="id"></td>
+				<tr>
+					<th>First name</th>
+					<td><Input id="fname" type="text" name="firstName"
+						placeholder="Enter your first name" required></td>
 
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Last name</td>
-						<td colspan="2"><input id="a2" type="password" name="password"></td>
+				</tr>
+				<tr>
+					<th>Last name</th>
+					<td><input id="lname" type="password" name="lastName"
+						placeholder="Enter your last name" required></td>
 
-					</tr>
-					<tr>
-						<td>Date of birth</td>
-						<td colspan="2"><input id="a3" type="date" name="date"></td>
+				</tr>
+				<tr>
+					<th>Date of birth</th>
+					<td><input id="dob" type="date" name="dateOfBirth" required></td>
 
-					</tr>
-					<tr>
-						<td>Age</td>
-						<td colspan="2"><input id="a4" type="number" name="age"></td>
+				</tr>
+				<tr>
+					<th>Age</th>
+					<td><input id="age" type="number" name="age"
+						placeholder="Enter your age" required></td>
 
-					</tr>
-					<tr>
-						<td>Gender</td>
-						<td><label for="male">Male</label><input id="a51" type="radio" name="male" value="Male"></td>
-						<td><label for="female">Female</label><input id="a52" type="radio" name="female" value="Female"></td>
-					</tr>
-					<tr>
-						<td>Email</td>
-						<td colspan="2"><input id="a6" type="email" name="email"></td>
-					</tr>
-					<tr>
-							<td>Contact No</td>
-							<td colspan="2"><input id="a7" type="tel" name="contactno"></td>
-					</tr>
-					<tr>
-							<td>Address</td>
-							<td colspan="2"><input id="a8" type="textarea" rows="5" cols="50" name="address"></td>
-					</tr>
-					<tr>
-						<td>Employee type</td>
-						<td colspan="2"><select>
-								<option value="Manager">Manager
-								<option value="Employee">Employee
-						</select></td>
-					</tr>
+				</tr>
+				<tr>
+					<th rowspan="2">Gender</th>
+					<td><input id="male" type="radio" name="radioGender"
+						value="Male"><label for="male">Male</label></td>
+				</tr>
+				<tr>
+					<td><input id="female" type="radio" name="radioGender"
+						value="Female"><label for="female">Female</label></td>
+				</tr>
+				<tr>
+					<th>Email</th>
+					<td><input id="email" type="email" name="email"
+						placeholder="Enter your email" required></td>
+				</tr>
+				<tr>
+					<th>Contact Number</th>
+					<td><input id="phoneNo" type="tel" name="contactNo"
+						placeholder="Enter your contact number" required></td>
+				</tr>
+				<tr>
+					<th>Address</th>
+					<td><textarea id="address" rows="5" cols="50" name="address"
+							placeholder="Enter your address" required></textarea></td>
+				</tr>
+				<tr>
+					<th>Employee type</th>
+					<td><select>
+							<option value="Manager">Manager
+							<option value="Employee">Employee
+					</select></td>
+				</tr>
 
-					<tr>
-						<td colspan="2"><input type="submit" value="Register"></button></td>
+				<tr>
+					<td><input id="submitButton" type="submit" value="Register">
+					</button></td>
 
-						<td><input type="reset" value="Reset"></td>
+					<td><input id="resetButton" type="reset" value="Reset"></td>
 
-					</tr>
-				</tbody>
+				</tr>
 			</table>
 		</form>
 	</div>
-
+</center>
 </body>
 </html>

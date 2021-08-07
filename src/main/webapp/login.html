@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<title>SignUp Form</title>
+<title>Login Form</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet"
@@ -10,30 +10,47 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+#NewAccount {
+	direction: rtl;
+}
+
+.loginForm {
+	width: 50%;
+	margin: 100px;
+	border: 150px;
+	padding: 50px;
+}
+</style>
 </head>
 <body>
-	<div class="container">
-		<h2>Login Form :ERS Application</h2>
-		<h1 id="abc"></h1>
-		<form action="">
-			<table class="table table-hover">
-				<tbody>
-				<tr>
-					<td>User Name</td>
-					<td><input type="text" name="uname" placeholder="Enter your username" required></td>
-				</tr>
-				<tr>
-					<td>Password</td>
-					<td><input type="password" name="pwd" placeholder="Enter your password" required></td>
-				</tr>
-				<tr>
-					<td colspan="2"><input type="submit" value="Login"></button></td>
-					<td><input type="reset" value="Forgot Password"></td>
-				</tr>
-				</tbody>
-			</table>
-		</form>
-	</div>
-
+	<center>
+		<div class="loginForm">
+			<h2>Sign in</h2>
+			<form action="">
+				<table class="table table-hover">
+					<tr>
+						<th>User Name</th>
+						<td><input type="text" name="uname"
+							placeholder="Enter your email or contact number" required></td>
+					</tr>
+					<tr>
+						<th>Password</th>
+						<td><input type="password" name="pwd"
+							placeholder="Enter your password" required></td>
+					</tr>
+					<tr>
+						<td><input type="submit" value="Login">
+						</button></td>
+						<td><input type="submit" value="Forgot Password"></td>
+					</tr>
+				</table>
+			</form>
+			<p id="NewAccount">
+				New to Employee Reimbursement System? <a href="Signup.html">Create
+					an Account</a>
+			</p>
+		</div>
+	</center>
 </body>
 </html>
