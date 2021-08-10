@@ -11,8 +11,9 @@ import com.ers.util.SignupMapper;
 public class SignupDAOImpl implements SignupDAO {
 
 	@Override
-	public void addEmployeeDetails(Signup signup) {
+	public boolean addEmployeeDetails(Signup signup) {
 		// TODO Auto-generated method stub
+		boolean getStatus = false;
 		Session session = null;
 		try {
 			session = HibernateUtil.getSessionFactory().openSession();
@@ -21,6 +22,7 @@ public class SignupDAOImpl implements SignupDAO {
 			session.save(sessionEntity);
 			session.getTransaction().commit();
 			System.out.println("Data inserted successfully");
+			getStatus = true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
@@ -28,6 +30,7 @@ public class SignupDAOImpl implements SignupDAO {
 				session.close();
 			}
 		}
+		return getStatus;
 	}
 
 }

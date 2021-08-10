@@ -32,6 +32,7 @@
 			drop the schema at the end of the session. -->
 		 <!-- <mapping resource="com/hcl/entity/employee.hbm.xml"/> -->
 		<mapping class="com.ers.entity.SignupEntity" />
+		<mapping class="com.ers.entity.LoginCredentialsEntity" />
 		
 	</session-factory>
 </hibernate-configuration>

@@ -6,6 +6,7 @@ import com.ers.model.Signup;
 public class SignupMapper {
 	public static SignupEntity mapSignup(Signup signup) {
 		SignupEntity signupEntity = new SignupEntity();
+		signupEntity.setEmpId(signup.getEmpId());
 		signupEntity.setFirstName(signup.getFirstName());
 		signupEntity.setLastName(signup.getLastName());
 		signupEntity.setDateOfBirth(signup.getDateOfBirth());
