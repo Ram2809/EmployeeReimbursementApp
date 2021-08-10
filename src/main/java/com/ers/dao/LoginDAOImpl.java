@@ -31,4 +31,36 @@ public class LoginDAOImpl implements LoginDAO {
 		return loginList;
 	}
 
+	public boolean updateForgotPassword(String userName, String passWord) {
+		boolean getStatus=false;
+		List<Integer> loginIdList=new ArrayList<>();
+		Session session=HibernateUtil.getSessionFactory().openSession();
+		try
+		{
+			Query query=session.createQuery("select l.loginId from LoginCredentialsEntity l where l.userName=:userName");
+			query.setParameter("userName", userName);
+			loginIdList=query.list();
+			int loginId=loginIdList.get(0);
+			System.out.println(loginId);
+			session.find(LoginCredentialsEntity.class,loginId);
+			LoginCredentialsEntity loginCredentialsEntity=session.load(LoginCredentialsEntity.class,loginId);
+			loginCredentialsEntity.setPassWord(passWord);
+			session.merge(loginCredentialsEntity);
+			session.flush();
+			session.getTransaction().commit();
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return getStatus;
+	}
+
 }

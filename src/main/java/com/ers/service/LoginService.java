@@ -8,4 +8,6 @@ import com.ers.model.Login;
 
 public interface LoginService {
 	public List<LoginCredentialsEntity> validateUser();
+
+	public boolean updateForgotPassword(String userName, String passWord);
 }

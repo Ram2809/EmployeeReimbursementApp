@@ -6,7 +6,6 @@ import com.ers.model.LoginCredentials;
 
 public class LoginCredentialsMapper {
 	public static LoginCredentialsEntity mapLoginCredentials(LoginCredentials loginCredentials) {
-		System.out.println("IN Start LOGIN MAPPER");
 		LoginCredentialsEntity loginCredentialsEntity = new LoginCredentialsEntity();
 		SignupEntity signupEntity = new SignupEntity();
 		signupEntity.setEmail(loginCredentials.getUserName());

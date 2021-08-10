@@ -6,4 +6,6 @@ import com.ers.entity.LoginCredentialsEntity;
 
 public interface LoginDAO {
 	public List<LoginCredentialsEntity> validateUser();
+
+	public boolean updateForgotPassword(String userName, String passWord);
 }

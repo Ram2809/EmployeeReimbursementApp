@@ -15,4 +15,8 @@ public class LoginServiceImpl implements LoginService {
 		return loginDAOImpl.validateUser();
 	}
 
+	public boolean updateForgotPassword(String userName, String passWord) {
+		return loginDAOImpl.updateForgotPassword(userName, passWord);
+	}
+
 }

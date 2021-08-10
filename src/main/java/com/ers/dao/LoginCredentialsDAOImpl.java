@@ -16,13 +16,10 @@ public class LoginCredentialsDAOImpl implements LoginCredentialsDAO {
 		boolean getStatus = false;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			System.out.println("In login dao impl");
 			session.beginTransaction();
-			System.out.println("before mapper");
 			int result = 0;
 			result = (Integer) session.save(LoginCredentialsMapper.mapLoginCredentials(loginCredentials));
 			System.out.println(result);
-			System.out.println("after mapper");
 			session.getTransaction().commit();
 			System.out.println("Data inserted successfully!");
 			getStatus = true;
