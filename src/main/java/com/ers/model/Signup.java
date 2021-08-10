@@ -1,7 +1,6 @@
 package com.ers.model;
 
 public class Signup {
-	private Integer empId;
 	private String firstName;
 	private String lastName;
 	private String dateOfBirth;
@@ -16,10 +15,9 @@ public class Signup {
 		super();
 	}
 
-	public Signup(Integer empId, String firstName, String lastName, String dateOfBirth, Integer age, String gender,
-			String email, String contactNo, String address, String employeeType) {
+	public Signup(String firstName, String lastName, String dateOfBirth, Integer age, String gender, String email,
+			String contactNo, String address, String employeeType) {
 		super();
-		this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
@@ -103,19 +101,11 @@ public class Signup {
 		this.employeeType = employeeType;
 	}
 
-	public Integer getEmpId() {
-		return empId;
-	}
-
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
-	}
-
 	@Override
 	public String toString() {
-		return "Signup [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
-				+ dateOfBirth + ", age=" + age + ", gender=" + gender + ", email=" + email + ", contactNo=" + contactNo
-				+ ", address=" + address + ", employeeType=" + employeeType + "]";
+		return "Signup [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth + ", age="
+				+ age + ", gender=" + gender + ", email=" + email + ", contactNo=" + contactNo + ", address=" + address
+				+ ", employeeType=" + employeeType + "]";
 	}
 
 }

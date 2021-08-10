@@ -32,12 +32,18 @@
 			background-color:hotpink;
 		}
     </style>
+	<script>
+		function goToForgotPassword()
+		{
+			window.location.href="forgotPassword.html"
+		}
+	</script>
 </head>
 <body>
     <center>
 	<div class="loginForm">	
         <h2>Sign in to Employee Reimbursement System</h2>
-		<form action="" method="GET">
+		<form action="http://localhost:8080/EmployeeReimbursementApp/LoginServlet" method="GET">
 			<table class="table table-hover">
 				<tr>
 					<th>User Name</th>
@@ -48,12 +54,12 @@
 					<td><input type="password" name="pwd" placeholder="Enter your password" required></td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="Login"></button></td>
-					<td><input type="submit" value="Forgot Password"></td>
+					<td><input type="submit" value="Login"></td>
+					<td><input type="submit" value="Forgot Password" onclick="goToForgotPassword()"></td>
 				</tr>
 			</table>
 		</form>
-        <p id="NewAccount">New to Employee Reimbursement System? <a href="SignUp.html">Create an Account</a></p>
+        <p id="NewAccount">New to Employee Reimbursement System? <a href="Signup.html">Create an Account</a></p>
 	</div>
 </center>
 </body>

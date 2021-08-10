@@ -23,7 +23,6 @@ public class SignupServlet extends HttpServlet {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		Integer userId = Integer.parseInt(request.getParameter("userId"));
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String dateOfBirth = request.getParameter("dateOfBirth");
@@ -33,10 +32,9 @@ public class SignupServlet extends HttpServlet {
 		String contactNo = request.getParameter("contactNo");
 		String address = request.getParameter("address");
 		String employeeType = request.getParameter("etype");
-		System.out.println(userId + " " + firstName + " " + lastName + " " + dateOfBirth + " " + age + " " + gender
-				+ " " + email + " " + contactNo + " " + address + " " + employeeType);
+		System.out.println(firstName + " " + lastName + " " + dateOfBirth + " " + age + " " + gender + " " + email + " "
+				+ contactNo + " " + address + " " + employeeType);
 		Signup signUp = new Signup();
-		signUp.setEmpId(userId);
 		signUp.setFirstName(firstName);
 		signUp.setLastName(lastName);
 		signUp.setDateOfBirth(dateOfBirth);

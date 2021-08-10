@@ -9,34 +9,37 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-
 @Entity
 @Table(name = "employee")
 public class SignupEntity {
-
-	@Id
-	private Integer empId;
+	@Column(nullable=false)
 	private String firstName;
+	@Column(nullable=false)
 	private String lastName;
+	@Column(nullable=false)
 	private String dateOfBirth;
+	@Column(nullable=false)
 	private Integer age;
+	@Column(nullable=false)
 	private String gender;
+	@Id
 	private String email;
+	@Column(nullable=false)
 	private String contactNo;
+	@Column(nullable=false)
 	private String address;
+	@Column(nullable=false)
 	private String employeeType;
-	@OneToOne(mappedBy = "empId")
+	@OneToOne(mappedBy = "user")
 	private LoginCredentialsEntity loginCredentialsEntity;
 
 	public SignupEntity() {
 		super();
 	}
 
-	public SignupEntity(Integer empId, String firstName, String lastName, String dateOfBirth, Integer age,
-			String gender, String email, String contactNo, String address, String employeeType,
-			LoginCredentialsEntity loginCredentialsEntity) {
+	public SignupEntity(String firstName, String lastName, String dateOfBirth, Integer age, String gender, String email,
+			String contactNo, String address, String employeeType, LoginCredentialsEntity loginCredentialsEntity) {
 		super();
-		this.empId = empId;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.dateOfBirth = dateOfBirth;
@@ -47,29 +50,6 @@ public class SignupEntity {
 		this.address = address;
 		this.employeeType = employeeType;
 		this.loginCredentialsEntity = loginCredentialsEntity;
-	}
-
-	public Integer getEmpId() {
-		return empId;
-	}
-
-	public SignupEntity(Integer empId, String firstName, String lastName, String dateOfBirth, Integer age,
-			String gender, String email, String contactNo, String address, String employeeType) {
-		super();
-		this.empId = empId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.age = age;
-		this.gender = gender;
-		this.email = email;
-		this.contactNo = contactNo;
-		this.address = address;
-		this.employeeType = employeeType;
-	}
-
-	public void setEmpId(Integer empId) {
-		this.empId = empId;
 	}
 
 	public String getFirstName() {
@@ -154,10 +134,10 @@ public class SignupEntity {
 
 	@Override
 	public String toString() {
-		return "SignupEntity [empId=" + empId + ", firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth="
-				+ dateOfBirth + ", age=" + age + ", gender=" + gender + ", email=" + email + ", contactNo=" + contactNo
-				+ ", address=" + address + ", employeeType=" + employeeType + ", loginCredentials="
-				+ loginCredentialsEntity + "]";
+		return "SignupEntity [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
+				+ ", age=" + age + ", gender=" + gender + ", email=" + email + ", contactNo=" + contactNo + ", address="
+				+ address + ", employeeType=" + employeeType + ", loginCredentialsEntity=" + loginCredentialsEntity
+				+ "]";
 	}
 
 }

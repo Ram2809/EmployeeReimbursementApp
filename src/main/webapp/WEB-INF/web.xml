@@ -22,6 +22,18 @@
   	<description></description>
   	<servlet-class>com.ers.controller.LoginCredentialsServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>LoginValidateServlet</servlet-name>
+  	<display-name>LoginValidateServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ForgotPassWordServlet</servlet-name>
+  	<display-name>ForgotPassWordServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ForgotPassWordServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -33,5 +45,13 @@
   <servlet-mapping>
   	<servlet-name>LoginCredentialsServlet</servlet-name>
   	<url-pattern>/LoginCredentialsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>LoginValidateServlet</servlet-name>
+  	<url-pattern>/LoginValidateServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ForgotPassWordServlet</servlet-name>
+  	<url-pattern>/ForgotPassWordServlet</url-pattern>
   </servlet-mapping>
 </web-app>

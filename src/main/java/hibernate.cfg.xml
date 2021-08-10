@@ -33,6 +33,7 @@
 		 <!-- <mapping resource="com/hcl/entity/employee.hbm.xml"/> -->
 		<mapping class="com.ers.entity.SignupEntity" />
 		<mapping class="com.ers.entity.LoginCredentialsEntity" />
+		<mapping class="com.ers.entity.LoginEntity" />
 		
 	</session-factory>
 </hibernate-configuration>

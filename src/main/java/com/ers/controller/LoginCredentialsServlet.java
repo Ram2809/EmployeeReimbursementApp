@@ -25,14 +25,18 @@ public class LoginCredentialsServlet extends HttpServlet {
 		String userName = request.getParameter("uname");
 		String passWord = request.getParameter("pwd");
 		String confirmPassword = request.getParameter("confirmPassword");
+		boolean status=false;
 		System.out.println(userName + " " + passWord + " " + confirmPassword);
 		if (passWord.equals(confirmPassword)) {
 			LoginCredentials loginCredentials = new LoginCredentials();
 			loginCredentials.setUserName(userName);
 			loginCredentials.setPassWord(passWord);
 			LoginCredentialsService loginCredentialsServiceImpl = new LoginCredentialsServiceImpl();
-			loginCredentialsServiceImpl.addLoginCredentials(loginCredentials);
+			status=loginCredentialsServiceImpl.addLoginCredentials(loginCredentials);
+			if(status)
+			{
+				response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessRegisteration.html");
+			}
 		}
-
 	}
 }

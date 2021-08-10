@@ -9,12 +9,10 @@ public class LoginCredentialsMapper {
 		System.out.println("IN Start LOGIN MAPPER");
 		LoginCredentialsEntity loginCredentialsEntity = new LoginCredentialsEntity();
 		SignupEntity signupEntity = new SignupEntity();
-		signupEntity.setEmpId(loginCredentials.getEmpId());
-		loginCredentialsEntity.setEmpId(signupEntity);
+		signupEntity.setEmail(loginCredentials.getUserName());
+		loginCredentialsEntity.setUser(signupEntity);
 		loginCredentialsEntity.setUserName(loginCredentials.getUserName());
 		loginCredentialsEntity.setPassWord(loginCredentials.getPassWord());
-		System.out.println("IN end LOGIN MAPPER");
 		return loginCredentialsEntity;
-
 	}
 }

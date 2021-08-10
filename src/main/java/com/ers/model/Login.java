@@ -1,14 +1,14 @@
 package com.ers.model;
 
-public class LoginCredentials {
+public class Login {
 	private String userName;
 	private String passWord;
 
-	public LoginCredentials() {
+	public Login() {
 		super();
 	}
 
-	public LoginCredentials(String userName, String passWord) {
+	public Login(String userName, String passWord) {
 		super();
 		this.userName = userName;
 		this.passWord = passWord;
@@ -32,7 +32,7 @@ public class LoginCredentials {
 
 	@Override
 	public String toString() {
-		return "LoginCredentials [userName=" + userName + ", passWord=" + passWord + "]";
+		return "Login [userName=" + userName + ", passWord=" + passWord + "]";
 	}
 
 }

@@ -12,16 +12,20 @@ import com.ers.util.LoginCredentialsMapper;
 import com.ers.util.SignupMapper;
 
 public class LoginCredentialsDAOImpl implements LoginCredentialsDAO {
-	public void addLoginCredentials(LoginCredentials loginCredentials) {
+	public boolean addLoginCredentials(LoginCredentials loginCredentials) {
+		boolean getStatus = false;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			System.out.println("In login dao impl");
 			session.beginTransaction();
+			System.out.println("before mapper");
+			int result = 0;
+			result = (Integer) session.save(LoginCredentialsMapper.mapLoginCredentials(loginCredentials));
+			System.out.println(result);
 			System.out.println("after mapper");
-			session.save(LoginCredentialsMapper
-					.mapLoginCredentials(loginCredentials));
 			session.getTransaction().commit();
 			System.out.println("Data inserted successfully!");
+			getStatus = true;
 		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
@@ -29,8 +33,7 @@ public class LoginCredentialsDAOImpl implements LoginCredentialsDAO {
 				session.close();
 			}
 		}
+		return getStatus;
 	}
-
-	
 
 }

@@ -12,28 +12,22 @@ import javax.persistence.Table;
 
 import com.ers.model.Signup;
 
-
 @Entity
 @Table(name = "LoginCredential")
 public class LoginCredentialsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer loginId;
+	@Column(nullable=false)
 	private String userName;
+	@Column(nullable=false)
 	private String passWord;
-	@OneToOne(cascade = CascadeType.ALL, targetEntity = SignupEntity.class)
-	@JoinColumn(name = "empId")
-	private SignupEntity empId;
+	@OneToOne(targetEntity = SignupEntity.class)
+	@JoinColumn(name = "email",nullable=false)
+	private SignupEntity user;
 
 	public LoginCredentialsEntity() {
 		super();
-	}
-
-	public LoginCredentialsEntity(String userName, String passWord, SignupEntity signupEntity) {
-		super();
-		this.userName = userName;
-		this.passWord = passWord;
-		this.empId = signupEntity;
 	}
 
 	public String getUserName() {
@@ -52,17 +46,26 @@ public class LoginCredentialsEntity {
 		this.passWord = passWord;
 	}
 
-	public SignupEntity getEmpId() {
-		return empId;
+	public Integer getLoginId() {
+		return loginId;
 	}
 
-	public void setEmpId(SignupEntity signupEntity) {
-		this.empId = signupEntity;
+	public void setLoginId(Integer loginId) {
+		this.loginId = loginId;
+	}
+
+	public SignupEntity getUser() {
+		return user;
+	}
+
+	public void setUser(SignupEntity user) {
+		this.user = user;
 	}
 
 	@Override
 	public String toString() {
-		return "LoginCredentialsEntity [userName=" + userName + ", passWord=" + passWord + ", signup=" + empId + "]";
+		return "LoginCredentialsEntity [loginId=" + loginId + ", userName=" + userName + ", passWord=" + passWord
+				+ ", user=" + user + "]";
 	}
 
 }
