@@ -42,12 +42,11 @@ public class LoginDAOImpl implements LoginDAO {
 			loginIdList=query.list();
 			int loginId=loginIdList.get(0);
 			System.out.println(loginId);
-			session.find(LoginCredentialsEntity.class,loginId);
-			LoginCredentialsEntity loginCredentialsEntity=session.load(LoginCredentialsEntity.class,loginId);
-			loginCredentialsEntity.setPassWord(passWord);
-			session.merge(loginCredentialsEntity);
-			session.flush();
-			session.getTransaction().commit();
+			Query updateQuery=session.createQuery("UPDATE LoginCredentialsEntity set passWord=:pwd"+" where loginId=:userId");
+			updateQuery.setParameter("pwd", passWord);
+			updateQuery.setParameter("userId",loginId);
+			int count=updateQuery.executeUpdate();
+			System.out.println(count+" "+"Rows updated");
 		}
 		catch(HibernateException e)
 		{
