@@ -19,13 +19,31 @@ public class ForgotPassWordServlet extends HttpServlet {
 			throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		String userName ="makesh.a@revature.com"; //request.getParameter("username");
-		String passWord ="mnmnmn"; //request.getParameter("newPassword");
-		String confirmPassword = "mnmnmn";//request.getParameter("confirmPassword");
+		String userName = request.getParameter("username");
+		String passWord = request.getParameter("newPassword");
+		String confirmPassword = request.getParameter("confirmPassword");
+		boolean getStatus = false;
 		System.out.println(userName + " " + passWord + " " + confirmPassword);
-		if (passWord.equals(confirmPassword)) {
+		if (!passWord.equals(confirmPassword)) {
+			out.println("<head>");
+			out.println("<style>");
+			out.println("<link rel='stylesheet' href='boxModel.css'>");
+			out.println("</style>");
+			out.println("</head>");
+			out.println("<body>");
+			out.println("<center>");
+			out.println("<h1>Password and Confirm password not same!</h1>");
+			out.println("<input id='submitButton' type='submit' value='Continue'>");
+			out.println("</center>");
+			out.println("</body>");
+		} else {
 			LoginService loginServiceImpl = new LoginServiceImpl();
-			boolean getStatus = loginServiceImpl.updateForgotPassword(userName,passWord);
+			getStatus = loginServiceImpl.updateForgotPassword(userName, passWord);
+		}
+		if (getStatus) {
+			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessForgotPassword.html");
+		} else {
+			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/FailureForgotPassword.html");
 		}
 	}
 

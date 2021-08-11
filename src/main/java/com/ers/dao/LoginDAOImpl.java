@@ -10,8 +10,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 import com.ers.entity.LoginCredentialsEntity;
-import com.ers.entity.LoginEntity;
-import com.ers.model.Login;
 import com.ers.util.HibernateUtil;
 
 public class LoginDAOImpl implements LoginDAO {
@@ -32,30 +30,37 @@ public class LoginDAOImpl implements LoginDAO {
 	}
 
 	public boolean updateForgotPassword(String userName, String passWord) {
-		boolean getStatus=false;
-		List<Integer> loginIdList=new ArrayList<>();
-		Session session=HibernateUtil.getSessionFactory().openSession();
-		try
-		{
-			Query query=session.createQuery("select l.loginId from LoginCredentialsEntity l where l.userName=:userName");
+		boolean getStatus = false;
+		List<Integer> loginIdList = new ArrayList<>();
+		List<String> passWordList = new ArrayList<String>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session
+					.createQuery("select l.loginId from LoginCredentialsEntity l where l.userName=:userName");
 			query.setParameter("userName", userName);
-			loginIdList=query.list();
-			int loginId=loginIdList.get(0);
-			System.out.println(loginId);
-			Query updateQuery=session.createQuery("UPDATE LoginCredentialsEntity set passWord=:pwd"+" where loginId=:userId");
-			updateQuery.setParameter("pwd", passWord);
-			updateQuery.setParameter("userId",loginId);
-			int count=updateQuery.executeUpdate();
-			System.out.println(count+" "+"Rows updated");
-		}
-		catch(HibernateException e)
-		{
+			loginIdList = query.list();
+			int loginId = loginIdList.get(0);
+			Query passWordQuery = session
+					.createQuery("select l.passWord from LoginCredentialsEntity l where l.userName=:userName");
+			passWordQuery.setParameter("userName", userName);
+			passWordList = passWordQuery.list();
+			String previousPassWord = passWordList.get(0);
+			if (passWord.equals(previousPassWord)) {
+				getStatus = false;
+			} else {
+				session.beginTransaction();
+				Query updateQuery = session
+						.createQuery("UPDATE LoginCredentialsEntity set passWord=:pwd" + " where loginId=:userId");
+				updateQuery.setParameter("pwd", passWord);
+				updateQuery.setParameter("userId", loginId);
+				int count = updateQuery.executeUpdate();
+				getStatus = true;
+				System.out.println(count + " " + "Rows updated");
+			}
+		} catch (HibernateException e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
+		} finally {
+			if (session != null) {
 				session.close();
 			}
 		}

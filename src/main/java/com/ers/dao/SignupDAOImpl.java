@@ -19,7 +19,8 @@ public class SignupDAOImpl implements SignupDAO {
 			session = HibernateUtil.getSessionFactory().openSession();
 			session.beginTransaction();
 			SignupEntity sessionEntity = SignupMapper.mapSignup(signup);
-			session.save(sessionEntity);
+			session.saveOrUpdate(sessionEntity);
+			session.flush();
 			session.getTransaction().commit();
 			System.out.println("Data inserted successfully");
 			getStatus = true;

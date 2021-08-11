@@ -34,6 +34,12 @@
   	<description></description>
   	<servlet-class>com.ers.controller.ForgotPassWordServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReImbursementRequestServlet</servlet-name>
+  	<display-name>ReImbursementRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ReImbursementRequestServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -53,5 +59,9 @@
   <servlet-mapping>
   	<servlet-name>ForgotPassWordServlet</servlet-name>
   	<url-pattern>/ForgotPassWordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReImbursementRequestServlet</servlet-name>
+  	<url-pattern>/ReImbursementRequestServlet</url-pattern>
   </servlet-mapping>
 </web-app>

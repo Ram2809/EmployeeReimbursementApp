@@ -1,55 +1,45 @@
 package com.ers.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "employee")
 public class SignupEntity {
-	@Column(nullable=false)
+	@OneToMany(mappedBy="userEmail")
+	private Set<ReimbursementRequestEntity> reimbursementRequests;
+	@Column(nullable = false)
 	private String firstName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String lastName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String dateOfBirth;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private Integer age;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String gender;
 	@Id
 	private String email;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String contactNo;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String address;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String employeeType;
 	@OneToOne(mappedBy = "user")
 	private LoginCredentialsEntity loginCredentialsEntity;
-
 	public SignupEntity() {
 		super();
-	}
-
-	public SignupEntity(String firstName, String lastName, String dateOfBirth, Integer age, String gender, String email,
-			String contactNo, String address, String employeeType, LoginCredentialsEntity loginCredentialsEntity) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.age = age;
-		this.gender = gender;
-		this.email = email;
-		this.contactNo = contactNo;
-		this.address = address;
-		this.employeeType = employeeType;
-		this.loginCredentialsEntity = loginCredentialsEntity;
 	}
 
 	public String getFirstName() {
@@ -132,12 +122,22 @@ public class SignupEntity {
 		this.loginCredentialsEntity = loginCredentialsEntity;
 	}
 
+	public Set<ReimbursementRequestEntity> getReimbursementRequests() {
+		return reimbursementRequests;
+	}
+
+	public void setReimbursementRequests(Set<ReimbursementRequestEntity> reimbursementRequests) {
+		this.reimbursementRequests = reimbursementRequests;
+	}
+
 	@Override
 	public String toString() {
-		return "SignupEntity [firstName=" + firstName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
-				+ ", age=" + age + ", gender=" + gender + ", email=" + email + ", contactNo=" + contactNo + ", address="
-				+ address + ", employeeType=" + employeeType + ", loginCredentialsEntity=" + loginCredentialsEntity
-				+ "]";
+		return "SignupEntity [reimbursementRequests=" + reimbursementRequests + ", firstName=" + firstName
+				+ ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth + ", age=" + age + ", gender=" + gender
+				+ ", email=" + email + ", contactNo=" + contactNo + ", address=" + address + ", employeeType="
+				+ employeeType + ", loginCredentialsEntity=" + loginCredentialsEntity + "]";
 	}
+
+
 
 }

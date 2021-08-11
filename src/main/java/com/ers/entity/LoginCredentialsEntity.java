@@ -18,12 +18,12 @@ public class LoginCredentialsEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer loginId;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String userName;
-	@Column(nullable=false)
+	@Column(nullable = false)
 	private String passWord;
 	@OneToOne(targetEntity = SignupEntity.class)
-	@JoinColumn(name = "email",nullable=false)
+	@JoinColumn(name = "email", nullable = false, unique = true)
 	private SignupEntity user;
 
 	public LoginCredentialsEntity() {
@@ -67,5 +67,7 @@ public class LoginCredentialsEntity {
 		return "LoginCredentialsEntity [loginId=" + loginId + ", userName=" + userName + ", passWord=" + passWord
 				+ ", user=" + user + "]";
 	}
+
+	
 
 }

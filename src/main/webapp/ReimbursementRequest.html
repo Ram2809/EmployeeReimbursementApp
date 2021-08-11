@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Employee Reimbursement Form</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+.table {
+	width: 50%;
+	margin: 100px;
+	border: 150px;
+	padding: 50px;
+}
+
+#submitButton, #resetButton {
+	background-color: rgb(119, 226, 221);
+	text-align: left;
+}
+</style>
+<!--<script>
+	function goToLoginCredential()
+	{
+		window.location.href="credential.html";
+	}
+</script>-->
+</head>
+<body>
+<center>
+	<div class="EmployeeReImbursement">
+	<h2>Employee Reimbursement Form</h2>
+		<form action="http://localhost:8080/EmployeeReimbursementApp/ReImbursementRequestServlet" method="GET">
+			<table class="table table-hover">
+				<tr>
+					<th>Reimbursement ID</th>
+					<td><Input id="Reimbursementid" type="text" name="reImbursementId"
+						placeholder="Enter your reimbursement id" required></td>
+
+				</tr>
+                <tr>
+					<th>Reimbursement type</th>
+					<td><select name="reImbursementType">
+							<option value="Travel">Travel
+							<option value="Health">Health
+                            <option value="Food">Food
+                            <option value="Education">Education
+					</select></td>
+				</tr>
+				<tr>
+					<th>Amount</th>
+					<td><input id="amt" type="number" name="reImbursementAmount"
+						placeholder="Enter your reimbursement amount" min="1000" max="50000" required></td>
+
+				</tr>
+				<tr>
+					<th>Date</th>
+					<td><input id="dateOfSubmission" type="date" name="reImbursementSubDate" required></td>
+				</tr>
+				<tr>
+					<td><input id="status" type="hidden" name="reImbursementStatus"
+						value="Pending" required></td>
+				</tr>
+				<tr>
+					<th>Description</th>
+					<td><textarea id="description" rows="5" cols="50" name="reImbursementDescription"
+							placeholder="Enter your description" required></textarea></td>
+				</tr>
+				<tr>
+					<th>Upload a File</th>
+					<td><input id="file" type="file" name="reImbursementFile"></td>
+
+				</tr>
+				<tr>
+					<td><input id="submitButton" type="submit" value="Send Request">
+					</button></td>
+					<td><input id="resetButton" type="reset" value="Reset"></td>
+
+				</tr>
+			</table>
+		</form>
+	</div>
+</center>
+</body>
+</html>

@@ -12,6 +12,7 @@ public class LoginCredentialsMapper {
 		loginCredentialsEntity.setUser(signupEntity);
 		loginCredentialsEntity.setUserName(loginCredentials.getUserName());
 		loginCredentialsEntity.setPassWord(loginCredentials.getPassWord());
+		System.out.println(loginCredentialsEntity);
 		return loginCredentialsEntity;
 	}
 }
