@@ -91,13 +91,13 @@ out.println(username);%></h1></marquee>
     <h2>Account Settings</h2>
     <ul id="myMenu">
       <li><a href="ReimbursementRequest.html">Submit New Request</a></li>
-      <li><a href="#">View Pending Requests </a></li>
-      <li><a href="#">View Resolved Requests</a></li>
-      <li><a href="#">View Denied Requests</a></li>
-      <li><a href="#">View All Requests</a></li>
-      <li><a href="#">Update Profile</a></li>
-      <li><a href="#">View Profile</a></li>
-      <li><a href="ResetPassword.html">Reset Password</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewEmployeePendingRequest">View Pending Requests </a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewEmployeeApporvedRequest">View Resolved Requests</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewEmployeeDeniedRequest">View Denied Requests</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewEmployeeAllRequest">View All Requests</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/UpdateProfileServlet">Update Profile</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewProfileServlet">View Profile</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/ResetPassWord.html">Reset Password</a></li>
     </ul>
   </div>
   

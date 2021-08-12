@@ -1,8 +1,13 @@
 package com.ers.dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 
+import com.ers.entity.ReimbursementRequestEntity;
 import com.ers.entity.SignupEntity;
 import com.ers.model.Signup;
 import com.ers.util.HibernateUtil;
@@ -25,6 +30,67 @@ public class SignupDAOImpl implements SignupDAO {
 			System.out.println("Data inserted successfully");
 			getStatus = true;
 		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return getStatus;
+	}
+
+	@Override
+	public List<SignupEntity> getEmployeeDetails(String userName) {
+		// TODO Auto-generated method stub
+		List<SignupEntity> employeeList=new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("FROM SignupEntity s where email=:userId");
+			
+			query.setParameter("userId", userName);
+			employeeList=query.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return employeeList;
+	}
+
+	@Override
+	public boolean updateEmployeeDetails(Signup signup) {
+		// TODO Auto-generated method stub
+		boolean getStatus=false;
+		Session session=HibernateUtil.getSessionFactory().openSession();
+		try
+		{
+			session.beginTransaction();
+			SignupEntity signupEntity = SignupMapper.mapSignup(signup);
+			session.find(SignupEntity.class, signup.getEmail());
+			SignupEntity signupEntity1=session.load(SignupEntity.class, signup.getEmail());
+			signupEntity1.setFirstName(signupEntity.getFirstName());
+			signupEntity1.setLastName(signupEntity.getLastName());
+			signupEntity1.setDateOfBirth(signupEntity.getDateOfBirth());
+			signupEntity1.setAge(signupEntity.getAge());
+			signupEntity1.setGender(signupEntity.getGender());
+			signupEntity1.setEmail(signupEntity.getEmail());
+			signupEntity1.setContactNo(signupEntity.getContactNo());
+			signupEntity1.setAddress(signupEntity.getAddress());
+			signupEntity1.setEmployeeType(signupEntity.getEmployeeType());
+			session.merge(signupEntity1);
+			session.flush();
+			session.getTransaction().commit();
+			System.out.println("Data updated successfully1");
+			getStatus=true;
+		}
+		catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
 			if (session != null) {

@@ -17,4 +17,10 @@ public class LoginServiceImpl implements LoginService {
 		return loginDAOImpl.updateForgotPassword(userName, passWord);
 	}
 
+	@Override
+	public boolean resetForgotPassword(String userName, String newPassWord, String currentPassWord) {
+		// TODO Auto-generated method stub
+		return loginDAOImpl.resetForgotPassword(userName, newPassWord,currentPassWord);
+	}
+
 }

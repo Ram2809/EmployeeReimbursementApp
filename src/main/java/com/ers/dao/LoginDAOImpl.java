@@ -67,4 +67,48 @@ public class LoginDAOImpl implements LoginDAO {
 		return getStatus;
 	}
 
+	@Override
+	public boolean resetForgotPassword(String userName, String newPassWord, String currentPassWord) {
+		boolean getStatus = false;
+		System.out.println(userName);
+		System.out.println(newPassWord);
+		System.out.println(currentPassWord);
+		List<Integer> loginIdList = new ArrayList<>();
+		List<String> passWordList = new ArrayList<String>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session
+					.createQuery("select l.loginId from LoginCredentialsEntity l where l.userName=:userName");
+			query.setParameter("userName", userName);
+			loginIdList = query.list();
+			int loginId = loginIdList.get(0);
+			System.out.println(loginId);
+			Query passWordQuery = session
+					.createQuery("select l.passWord from LoginCredentialsEntity l where l.userName=:userName");
+			passWordQuery.setParameter("userName", userName);
+			passWordList = passWordQuery.list();
+			String previousPassWord = passWordList.get(0);
+			System.out.println(previousPassWord);
+			if (!currentPassWord.equals(previousPassWord)) {
+				getStatus = false;
+			} else {
+				session.beginTransaction();
+				Query updateQuery = session
+						.createQuery("UPDATE LoginCredentialsEntity set passWord=:pwd" + " where loginId=:userId");
+				updateQuery.setParameter("pwd", newPassWord);
+				updateQuery.setParameter("userId", loginId);
+				int count = updateQuery.executeUpdate();
+				getStatus = true;
+				System.out.println(count + " " + "Rows updated");
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return getStatus;
+	}
+
 }

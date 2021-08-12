@@ -65,4 +65,103 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		return employeeList;
 	}
 
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserPendingRequests(String userName) {
+		List<ReimbursementRequestEntity> pendingList=new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("FROM ReimbursementRequestEntity r where email=:userId and reqStatus=:status");
+			
+			query.setParameter("userId", userName);
+			query.setParameter("status", "Pending");
+			pendingList=query.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return pendingList;
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserApprovedRequests(String userName) {
+		List<ReimbursementRequestEntity> approvedList=new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("FROM ReimbursementRequestEntity r where email=:userId and reqStatus=:status");
+			
+			query.setParameter("userId", userName);
+			query.setParameter("status", "Accepted");
+			approvedList=query.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return approvedList;
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserDeniedRequests(String userName) {
+		List<ReimbursementRequestEntity> rejectedList=new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("FROM ReimbursementRequestEntity r where email=:userId and reqStatus=:status");
+			
+			query.setParameter("userId", userName);
+			query.setParameter("status", "Denied");
+			rejectedList=query.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return rejectedList;
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserAllRequests(String userName) {
+		List<ReimbursementRequestEntity> allRequestList=new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("FROM ReimbursementRequestEntity r where email=:userId");
+			
+			query.setParameter("userId", userName);
+			allRequestList=query.list();
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return allRequestList;
+	}
+
 }

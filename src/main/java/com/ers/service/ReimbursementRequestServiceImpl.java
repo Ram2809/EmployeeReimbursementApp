@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.ers.dao.ReimbursementRequestDAO;
 import com.ers.dao.ReimbursementRequestDAOImpl;
+import com.ers.entity.ReimbursementRequestEntity;
 import com.ers.entity.SignupEntity;
 import com.ers.model.ReimbursementRequest;
 import com.ers.model.Signup;
@@ -19,6 +20,30 @@ public class ReimbursementRequestServiceImpl implements ReimbursementRequestServ
 	public List<SignupEntity> getParticularUser(String email) {
 		// TODO Auto-generated method stub
 		return reimbursementRequestDAOImpl.getParticularUser(email);
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserPendingRequests(String userName) {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getParticularUserPendingRequests(userName);
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserApprovedRequests(String userName) {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getParticularUserApprovedRequests(userName);
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserDeniedRequests(String userName) {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getParticularUserDeniedRequests(userName);
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getParticularUserAllRequests(String userName) {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getParticularUserAllRequests(userName);
 	}
 
 }

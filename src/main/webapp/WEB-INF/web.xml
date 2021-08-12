@@ -40,6 +40,60 @@
   	<description></description>
   	<servlet-class>com.ers.controller.ReImbursementRequestServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ViewEmployeePendingRequest</servlet-name>
+  	<display-name>ViewEmployeePendingRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewEmployeePendingRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewEmployeeApporvedRequest</servlet-name>
+  	<display-name>ViewEmployeeApporvedRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewEmployeeApporvedRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewEmployeeDeniedRequest</servlet-name>
+  	<display-name>ViewEmployeeDeniedRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewEmployeeDeniedRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewEmployeeAllRequest</servlet-name>
+  	<display-name>ViewEmployeeAllRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewEmployeeAllRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewProfileServlet</servlet-name>
+  	<display-name>ViewProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateProfileServlet</servlet-name>
+  	<display-name>UpdateProfileServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.UpdateProfileServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ResetPassWordServlet</servlet-name>
+  	<display-name>ResetPassWordServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ResetPassWordServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ResetPassword</servlet-name>
+  	<display-name>ResetPassword</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ResetPassword</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>UpdateInfoServlet</servlet-name>
+  	<display-name>UpdateInfoServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.UpdateInfoServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -63,5 +117,41 @@
   <servlet-mapping>
   	<servlet-name>ReImbursementRequestServlet</servlet-name>
   	<url-pattern>/ReImbursementRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewEmployeePendingRequest</servlet-name>
+  	<url-pattern>/ViewEmployeePendingRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewEmployeeApporvedRequest</servlet-name>
+  	<url-pattern>/ViewEmployeeApporvedRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewEmployeeDeniedRequest</servlet-name>
+  	<url-pattern>/ViewEmployeeDeniedRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewEmployeeAllRequest</servlet-name>
+  	<url-pattern>/ViewEmployeeAllRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewProfileServlet</servlet-name>
+  	<url-pattern>/ViewProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateProfileServlet</servlet-name>
+  	<url-pattern>/UpdateProfileServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ResetPassWordServlet</servlet-name>
+  	<url-pattern>/ResetPassWordServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ResetPassword</servlet-name>
+  	<url-pattern>/ResetPassword</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UpdateInfoServlet</servlet-name>
+  	<url-pattern>/UpdateInfoServlet</url-pattern>
   </servlet-mapping>
 </web-app>
