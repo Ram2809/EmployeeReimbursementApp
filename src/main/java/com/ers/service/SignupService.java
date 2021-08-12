@@ -12,4 +12,5 @@ public interface SignupService {
 	public String getEmployeeType(String userName);
 	public List<SignupEntity> getAllEmployees();
 	public List<String> getUserNames();
+	public boolean deleteEmployeeDetails(Signup signup);
 }

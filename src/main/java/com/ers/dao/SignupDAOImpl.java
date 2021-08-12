@@ -152,4 +152,32 @@ public class SignupDAOImpl implements SignupDAO {
 		return userNameList;
 	}
 
+	public boolean deleteEmployeeDetails(Signup signup) {
+		boolean getStatus=false;
+		Session session=HibernateUtil.getSessionFactory().openSession();
+		try
+		{
+			session.beginTransaction();
+			SignupEntity signupMappedEntity=SignupMapper.mapSignup(signup);
+			session.find(SignupEntity.class, signupMappedEntity.getEmail());
+			SignupEntity signupLoadedEntity=session.load(SignupEntity.class, signupMappedEntity.getEmail());
+			session.delete(signupLoadedEntity);
+			session.flush();
+			session.getTransaction().commit();
+			getStatus=true;
+			System.out.println("Rows deleted!");
+		}
+		catch(HibernateException e)
+		{
+			e.printStackTrace();
+		}
+		finally {
+			if(session!=null)
+			{
+				session.close();
+			}
+		}
+		return getStatus;
+	}
+
 }

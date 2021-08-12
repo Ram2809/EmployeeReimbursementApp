@@ -125,7 +125,7 @@ public class UpdateProfileServlet extends HttpServlet {
 			out.println("</tr");
 			out.println("<tr>");
 			out.println("<center>");
-			out.println("<td><input id='submitButton' type='submit' value='Update'>");
+			out.println("<td colspan='2'><center><input id='submitButton' type='submit' value='Update'></center>");
 			out.println("</td>");
 			out.println("</center>");
 			out.println("</tr>");

@@ -12,8 +12,8 @@ import com.ers.model.Signup;
 public class ReimbursementRequestServiceImpl implements ReimbursementRequestService {
 	ReimbursementRequestDAO reimbursementRequestDAOImpl = (ReimbursementRequestDAO) new ReimbursementRequestDAOImpl();
 
-	public boolean addReimbursementRequestDetails(ReimbursementRequest reimbursementRequest,String email) {
-		return reimbursementRequestDAOImpl.addReimbursementRequestDetails(reimbursementRequest,email);
+	public boolean addReimbursementRequestDetails(ReimbursementRequest reimbursementRequest, String email) {
+		return reimbursementRequestDAOImpl.addReimbursementRequestDetails(reimbursementRequest, email);
 	}
 
 	@Override
@@ -62,6 +62,22 @@ public class ReimbursementRequestServiceImpl implements ReimbursementRequestServ
 	public List<ReimbursementRequestEntity> getAllDeniedRequests() {
 		// TODO Auto-generated method stub
 		return reimbursementRequestDAOImpl.getAllDeniedRequests();
+	}
+
+	@Override
+	public List<String> getRequestIds() {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getRequestIds();
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getDetailsById(String requestId) {
+		return reimbursementRequestDAOImpl.getDetailsById(requestId);
+	}
+
+	@Override
+	public boolean updateRequestStatus(String requestId, String managerAction) {
+		return reimbursementRequestDAOImpl.updateRequestStatus(requestId, managerAction);
 	}
 
 }

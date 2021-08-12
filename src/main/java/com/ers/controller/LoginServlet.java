@@ -30,22 +30,23 @@ public class LoginServlet extends HttpServlet {
 		String userName = request.getParameter("uname");
 		String passWord = request.getParameter("pwd");
 		out.println(userName + " " + passWord);
-		Cookie cUserName=new Cookie("cusername",userName);
+		Cookie cUserName = new Cookie("cusername", userName);
 		response.addCookie(cUserName);
-		SignupService signupServiceImpl=new SignupServiceImpl();
-		//LoginCredentialsEntity lo=new LoginCredentialsEntity();
-		String employeeType=signupServiceImpl.getEmployeeType(userName);//lo.getUser().getEmployeeType();
+		SignupService signupServiceImpl = new SignupServiceImpl();
+		String employeeType = signupServiceImpl.getEmployeeType(userName);
 		System.out.println(employeeType);
 		LoginService loginServiceImpl = (LoginService) new LoginServiceImpl();
 		List<LoginCredentialsEntity> loginList = loginServiceImpl.validateUser();
 		for (LoginCredentialsEntity e : loginList) {
-			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)&&employeeType.equals("Employee")) {
+			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)
+					&& employeeType.equals("Employee")) {
 				status = true;
 				request.setAttribute("attributeName", userName);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("employee.jsp");
 				requestDispatcher.forward(request, response);
 			}
-			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)&&employeeType.equals("Manager")) {
+			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)
+					&& employeeType.equals("Manager")) {
 				status = true;
 				request.setAttribute("attributeName", userName);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("Manager.jsp");
@@ -55,7 +56,6 @@ public class LoginServlet extends HttpServlet {
 		if (!status) {
 			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/FailureLogin.html");
 		}
-		
 
 	}
 

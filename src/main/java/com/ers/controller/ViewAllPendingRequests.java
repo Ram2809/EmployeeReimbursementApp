@@ -40,7 +40,7 @@ public class ViewAllPendingRequests extends HttpServlet {
 			System.out.println(re.getReqDescription());
 		}
 		out.println("<table border='2'>");
-		out.println("<caption>Pending Requests</caption>");
+		out.println("<caption><h4>Pending Requests</h4></caption>");
 		out.println("<tr>");
 		out.println("<th>Request Id</th>");
 		out.println("<th>User Name</th>");
@@ -50,6 +50,7 @@ public class ViewAllPendingRequests extends HttpServlet {
 		out.println("<th>Request Amount</th>");
 		out.println("<th>Request Status</th>");
 		out.println("<th>Request Description</th>");
+		
 		out.println("</tr>");
 		for(ReimbursementRequestEntity re : allPendingRequestsList)
 		{
@@ -66,6 +67,7 @@ public class ViewAllPendingRequests extends HttpServlet {
 		}
 		out.println("</tr>");
 		out.println("</table>");
+		out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 		out.println("</body>");
 		

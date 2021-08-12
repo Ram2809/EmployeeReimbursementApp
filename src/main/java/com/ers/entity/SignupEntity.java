@@ -38,7 +38,7 @@ public class SignupEntity {
 	private String address;
 	@Column(nullable = false)
 	private String employeeType;
-	@OneToOne(mappedBy = "user")
+	@OneToOne(mappedBy = "user",cascade=CascadeType.ALL, orphanRemoval=true)
 	private LoginCredentialsEntity loginCredentialsEntity;
 	public SignupEntity() {
 		super();

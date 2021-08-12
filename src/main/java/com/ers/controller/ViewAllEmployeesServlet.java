@@ -65,6 +65,7 @@ public class ViewAllEmployeesServlet extends HttpServlet {
 		}
 		out.println("</tr>");
 		out.println("</table>");
+		out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 		out.println("</body>");
 

@@ -83,7 +83,7 @@ public class ViewProfileServlet extends HttpServlet {
 			{
 				out.println("<tr>");
 				out.println("<center>");
-				out.println("<td><a href='employee.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></a>");
+				out.println("<td><center><a href='employee.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></center></a>");
 				out.println("</td>");
 				out.println("</center>");
 				out.println("</tr>");
@@ -92,7 +92,7 @@ public class ViewProfileServlet extends HttpServlet {
 			{
 				out.println("<tr>");
 				out.println("<center>");
-				out.println("<td><a href='Manager.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></a>");
+				out.println("<td><center><a href='Manager.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></center></a>");
 				out.println("</td>");
 				out.println("</center>");
 				out.println("</tr>");

@@ -40,7 +40,7 @@ public class ViewAllApprovedRequests extends HttpServlet {
 			System.out.println(re.getReqDescription());
 		}
 		out.println("<table border='2'>");
-		out.println("<caption>Approved Requests</caption>");
+		out.println("<caption><h4>Approved Requests</h4></caption>");
 		out.println("<tr>");
 		out.println("<th>Request Id</th>");
 		out.println("<th>User Name</th>");
@@ -66,6 +66,7 @@ public class ViewAllApprovedRequests extends HttpServlet {
 		}
 		out.println("</tr>");
 		out.println("</table>");
+		out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 		out.println("</body>");
 		

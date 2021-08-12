@@ -148,6 +148,18 @@
   	<description></description>
   	<servlet-class>com.ers.controller.DeleteSpecificUser</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ManagerViewServlet</servlet-name>
+  	<display-name>ManagerViewServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ManagerViewServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ManagerUpdateRequestServlet</servlet-name>
+  	<display-name>ManagerUpdateRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ManagerUpdateRequestServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -243,5 +255,13 @@
   <servlet-mapping>
   	<servlet-name>DeleteSpecificUser</servlet-name>
   	<url-pattern>/DeleteSpecificUser</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ManagerViewServlet</servlet-name>
+  	<url-pattern>/ManagerViewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ManagerUpdateRequestServlet</servlet-name>
+  	<url-pattern>/ManagerUpdateRequestServlet</url-pattern>
   </servlet-mapping>
 </web-app>

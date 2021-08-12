@@ -41,7 +41,7 @@ public class ViewSpecificEmployeeRequest extends HttpServlet {
 		{
 			out.println("<option name='id'>"+userNameList+"");
 		}
-		out.println("<select>");
+		out.println("<select><br>");
 		out.println("<input type='submit' value='Select the Employee'>");
 		out.println("</form>");
 		out.println("</center>");

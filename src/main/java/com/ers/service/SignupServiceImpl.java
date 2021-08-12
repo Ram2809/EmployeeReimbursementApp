@@ -35,4 +35,8 @@ public class SignupServiceImpl implements SignupService {
 	public List<String> getUserNames() {
 		return signupDAOImpl.getUserNames();
 	}
+
+	public boolean deleteEmployeeDetails(Signup signup) {
+		return signupDAOImpl.deleteEmployeeDetails(signup);
+	}
 }

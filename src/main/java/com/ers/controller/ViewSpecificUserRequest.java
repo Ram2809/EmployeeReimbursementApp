@@ -40,7 +40,7 @@ public class ViewSpecificUserRequest extends HttpServlet {
 		
 		out.println("</select></form>");
 		out.println("<table border='2'>");
-		out.println("<caption><h1>Employee Requests</h1></caption>");
+		out.println("<caption><h4>Employee Requests</h4></caption>");
 		out.println("<tr>");
 		out.println("<th>Request Id</th>");
 		out.println("<th>User Name</th>");
@@ -64,6 +64,7 @@ public class ViewSpecificUserRequest extends HttpServlet {
 		}
 		out.println("</tr>");
 		out.println("</table>");
+		out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 		out.println("</body>");
 		

@@ -191,4 +191,64 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		return allDeniedRequestList;
 	}
 
+	@Override
+	public List<String> getRequestIds() {
+		List<String> allRequestIdList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session
+					.createQuery("SELECT r.reqId FROM ReimbursementRequestEntity r where reqStatus=:status");
+			query.setParameter("status", "Pending");
+			allRequestIdList = query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return allRequestIdList;
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getDetailsById(String requestId) {
+		List<ReimbursementRequestEntity> RequestDetailsList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session.createQuery("FROM ReimbursementRequestEntity r where reqId=:requestId");
+			query.setParameter("requestId", requestId);
+			RequestDetailsList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return RequestDetailsList;
+	}
+
+	@Override
+	public boolean updateRequestStatus(String requestId, String managerAction) {
+		boolean getStatus = false;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			session.beginTransaction();
+			Query query=session.createQuery("UPDATE ReimbursementRequestEntity SET reqStatus=:status WHERE reqId=:requestId");
+			query.setParameter("status",managerAction);
+			query.setParameter("requestId", requestId);
+			int count=query.executeUpdate();
+			getStatus=true;
+			session.getTransaction().commit();
+			System.out.println(count+" "+"Rows Updated");
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return getStatus;
+	}
+
 }
