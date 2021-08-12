@@ -94,6 +94,48 @@
   	<description></description>
   	<servlet-class>com.ers.controller.UpdateInfoServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ManagerActionServlet</servlet-name>
+  	<display-name>ManagerActionServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ManagerActionServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllPendingRequests</servlet-name>
+  	<display-name>ViewAllPendingRequests</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewAllPendingRequests</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllApprovedRequests</servlet-name>
+  	<display-name>ViewAllApprovedRequests</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewAllApprovedRequests</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllDeniedRequests</servlet-name>
+  	<display-name>ViewAllDeniedRequests</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewAllDeniedRequests</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewAllEmployeesServlet</servlet-name>
+  	<display-name>ViewAllEmployeesServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewAllEmployeesServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewSpecificEmployeeRequest</servlet-name>
+  	<display-name>ViewSpecificEmployeeRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewSpecificEmployeeRequest</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewSpecificUserRequest</servlet-name>
+  	<display-name>ViewSpecificUserRequest</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.ViewSpecificUserRequest</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -153,5 +195,33 @@
   <servlet-mapping>
   	<servlet-name>UpdateInfoServlet</servlet-name>
   	<url-pattern>/UpdateInfoServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ManagerActionServlet</servlet-name>
+  	<url-pattern>/ManagerActionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllPendingRequests</servlet-name>
+  	<url-pattern>/ViewAllPendingRequests</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllApprovedRequests</servlet-name>
+  	<url-pattern>/ViewAllApprovedRequests</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllDeniedRequests</servlet-name>
+  	<url-pattern>/ViewAllDeniedRequests</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewAllEmployeesServlet</servlet-name>
+  	<url-pattern>/ViewAllEmployeesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewSpecificEmployeeRequest</servlet-name>
+  	<url-pattern>/ViewSpecificEmployeeRequest</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewSpecificUserRequest</servlet-name>
+  	<url-pattern>/ViewSpecificUserRequest</url-pattern>
   </servlet-mapping>
 </web-app>

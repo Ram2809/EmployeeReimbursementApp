@@ -79,12 +79,24 @@ public class ViewProfileServlet extends HttpServlet {
 			out.println("<th>Employee Type</th>");
 			out.println("<td>"+elist.getEmployeeType()+"</td>");
 			out.println("</tr");
-			out.println("<tr>");
-			out.println("<center>");
-			out.println("<td><a href='employee.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></a>");
-			out.println("</td>");
-			out.println("</center>");
-			out.println("</tr>");
+			if(elist.getEmployeeType().equals("Employee"))
+			{
+				out.println("<tr>");
+				out.println("<center>");
+				out.println("<td><a href='employee.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></a>");
+				out.println("</td>");
+				out.println("</center>");
+				out.println("</tr>");
+			}
+			if(elist.getEmployeeType().equals("Manager"))
+			{
+				out.println("<tr>");
+				out.println("<center>");
+				out.println("<td><a href='Manager.jsp'><input id='submitButton' type='submit' value='Go Back to Home'></a>");
+				out.println("</td>");
+				out.println("</center>");
+				out.println("</tr>");
+			}
 		}
 		out.println("</tr>");
 		out.println("</table>");

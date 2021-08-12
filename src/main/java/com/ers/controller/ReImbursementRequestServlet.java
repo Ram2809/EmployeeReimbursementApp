@@ -41,6 +41,10 @@ public class ReImbursementRequestServlet extends HttpServlet {
 		reimbursementRequest.setReqDescription(reqDescription);
 		System.out.println(reimbursementRequest);
 		Cookie c[]=request.getCookies();
+		for(int i=0;i<c.length;i++)
+		{
+			System.out.println(c[i].getName()+" "+c[i].getValue());
+		}
 		String email=c[0].getValue();
 		ReimbursementRequestService reimbursementRequestServiceImpl = (ReimbursementRequestService) new ReimbursementRequestServiceImpl();
 		/*List<SignupEntity> getParticularUser=reimbursementRequestServiceImpl.getParticularUser(email);

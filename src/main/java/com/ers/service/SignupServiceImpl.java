@@ -23,4 +23,16 @@ public class SignupServiceImpl implements SignupService {
 	public boolean updateEmployeeDetails(Signup signup) {
 		return signupDAOImpl.updateEmployeeDetails(signup);
 	}
+
+	public String getEmployeeType(String userName) {
+		return signupDAOImpl.getEmployeeType(userName);
+	}
+
+	public List<SignupEntity> getAllEmployees() {
+		return signupDAOImpl.getAllEmployees();
+	}
+
+	public List<String> getUserNames() {
+		return signupDAOImpl.getUserNames();
+	}
 }

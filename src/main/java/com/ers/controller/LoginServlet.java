@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.ers.entity.LoginCredentialsEntity;
 import com.ers.service.LoginService;
 import com.ers.service.LoginServiceImpl;
+import com.ers.service.SignupService;
+import com.ers.service.SignupServiceImpl;
 
 /**
  * Servlet implementation class LoginServlet
@@ -30,13 +32,23 @@ public class LoginServlet extends HttpServlet {
 		out.println(userName + " " + passWord);
 		Cookie cUserName=new Cookie("cusername",userName);
 		response.addCookie(cUserName);
+		SignupService signupServiceImpl=new SignupServiceImpl();
+		//LoginCredentialsEntity lo=new LoginCredentialsEntity();
+		String employeeType=signupServiceImpl.getEmployeeType(userName);//lo.getUser().getEmployeeType();
+		System.out.println(employeeType);
 		LoginService loginServiceImpl = (LoginService) new LoginServiceImpl();
 		List<LoginCredentialsEntity> loginList = loginServiceImpl.validateUser();
 		for (LoginCredentialsEntity e : loginList) {
-			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)) {
+			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)&&employeeType.equals("Employee")) {
 				status = true;
 				request.setAttribute("attributeName", userName);
 				RequestDispatcher requestDispatcher = request.getRequestDispatcher("employee.jsp");
+				requestDispatcher.forward(request, response);
+			}
+			if (e.getUserName().equals(userName) && e.getPassWord().equals(passWord)&&employeeType.equals("Manager")) {
+				status = true;
+				request.setAttribute("attributeName", userName);
+				RequestDispatcher requestDispatcher = request.getRequestDispatcher("Manager.jsp");
 				requestDispatcher.forward(request, response);
 			}
 		}

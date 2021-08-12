@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -32,6 +33,8 @@ public class SignupServlet extends HttpServlet {
 		String contactNo = request.getParameter("contactNo");
 		String address = request.getParameter("address");
 		String employeeType = request.getParameter("etype");
+		Cookie cookie=new Cookie("employeeType",employeeType);
+		response.addCookie(cookie);
 		System.out.println(firstName + " " + lastName + " " + dateOfBirth + " " + age + " " + gender + " " + email + " "
 				+ contactNo + " " + address + " " + employeeType);
 		Signup signUp = new Signup();

@@ -42,22 +42,17 @@ public class SignupDAOImpl implements SignupDAO {
 	@Override
 	public List<SignupEntity> getEmployeeDetails(String userName) {
 		// TODO Auto-generated method stub
-		List<SignupEntity> employeeList=new ArrayList<>();
+		List<SignupEntity> employeeList = new ArrayList<>();
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
-			Query query=session.createQuery("FROM SignupEntity s where email=:userId");
-			
+			Query query = session.createQuery("FROM SignupEntity s where email=:userId");
+
 			query.setParameter("userId", userName);
-			employeeList=query.list();
-		}
-		catch(Exception e)
-		{
+			employeeList = query.list();
+		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		finally
-		{
-			if(session!=null)
-			{
+		} finally {
+			if (session != null) {
 				session.close();
 			}
 		}
@@ -67,14 +62,13 @@ public class SignupDAOImpl implements SignupDAO {
 	@Override
 	public boolean updateEmployeeDetails(Signup signup) {
 		// TODO Auto-generated method stub
-		boolean getStatus=false;
-		Session session=HibernateUtil.getSessionFactory().openSession();
-		try
-		{
+		boolean getStatus = false;
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
 			session.beginTransaction();
 			SignupEntity signupEntity = SignupMapper.mapSignup(signup);
 			session.find(SignupEntity.class, signup.getEmail());
-			SignupEntity signupEntity1=session.load(SignupEntity.class, signup.getEmail());
+			SignupEntity signupEntity1 = session.load(SignupEntity.class, signup.getEmail());
 			signupEntity1.setFirstName(signupEntity.getFirstName());
 			signupEntity1.setLastName(signupEntity.getLastName());
 			signupEntity1.setDateOfBirth(signupEntity.getDateOfBirth());
@@ -88,9 +82,8 @@ public class SignupDAOImpl implements SignupDAO {
 			session.flush();
 			session.getTransaction().commit();
 			System.out.println("Data updated successfully1");
-			getStatus=true;
-		}
-		catch (HibernateException e) {
+			getStatus = true;
+		} catch (HibernateException e) {
 			e.printStackTrace();
 		} finally {
 			if (session != null) {
@@ -98,6 +91,65 @@ public class SignupDAOImpl implements SignupDAO {
 			}
 		}
 		return getStatus;
+	}
+
+	@Override
+	public String getEmployeeType(String userName) {
+		// TODO Auto-generated method stub
+		String empType = "";
+		List<SignupEntity> employeeList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session.createQuery("from SignupEntity s where email=:userId");
+			query.setParameter("userId", userName);
+			System.out.println("Before query");
+			employeeList = query.list();
+			System.out.println("After query");
+			for (SignupEntity eList : employeeList) {
+				empType = eList.getEmployeeType();
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return empType;
+	}
+
+	@Override
+	public List<SignupEntity> getAllEmployees() {
+		List<SignupEntity> allEmployeeList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session.createQuery("FROM SignupEntity s where employeeType=:eType");
+			query.setParameter("eType", "Employee");
+			allEmployeeList = query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return allEmployeeList;
+	}
+
+	public List<String> getUserNames() {
+		List<String> userNameList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query=session.createQuery("SELECT s.email FROM SignupEntity s");
+			userNameList=query.list();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return userNameList;
 	}
 
 }

@@ -46,4 +46,22 @@ public class ReimbursementRequestServiceImpl implements ReimbursementRequestServ
 		return reimbursementRequestDAOImpl.getParticularUserAllRequests(userName);
 	}
 
+	@Override
+	public List<ReimbursementRequestEntity> getAllPendingRequests() {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getAllPendingRequests();
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getAllApprovedRequests() {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getAllApprovedRequests();
+	}
+
+	@Override
+	public List<ReimbursementRequestEntity> getAllDeniedRequests() {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getAllDeniedRequests();
+	}
+
 }
