@@ -95,7 +95,7 @@ top:25px;
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewAllDeniedRequests">View Denied Requests</a></li>
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewSpecificEmployeeRequest">View Request of Specific Employee</a></li>
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewAllEmployeesServlet">View all Employees</a></li>
-      <li><a href="#">Delete Specific Employee</a></li>
+      <li><a href="http://localhost:8080/EmployeeReimbursementApp/DeleteSpecificEmployee">Delete Specific Employee</a></li>
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/UpdateProfileServlet">Update Profile</a></li>
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/ViewProfileServlet">View Profile</a></li>
       <li><a href="http://localhost:8080/EmployeeReimbursementApp/ResetPassWord.html">Reset Password</a></li>
