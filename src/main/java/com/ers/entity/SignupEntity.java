@@ -18,7 +18,7 @@ import javax.transaction.Transactional;
 @Entity
 @Table(name = "employee")
 public class SignupEntity {
-	@OneToMany(mappedBy="userEmail",fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="userEmail",fetch=FetchType.EAGER,cascade=CascadeType.ALL, orphanRemoval=true)
 	private Set<ReimbursementRequestEntity> reimbursementRequests;
 	@Column(nullable = false)
 	private String firstName;

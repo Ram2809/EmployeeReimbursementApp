@@ -65,22 +65,10 @@ public class ViewEmployeePendingRequest extends HttpServlet {
 		}
 		out.println("</tr>");
 		out.println("</table>");
+		out.println("<a href='employee.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 		out.println("</body>");
 		
-		/*Signup signup=new Signup();
-		for(SignupEntity empList:getParticularUser)
-		{
-			signup.setFirstName(empList.getFirstName());
-			signup.setLastName(empList.getLastName());
-			signup.setDateOfBirth(empList.getDateOfBirth());
-			signup.setAge(empList.getAge());
-			signup.setEmail(empList.getEmail());
-			signup.setContactNo(empList.getContactNo());
-			signup.setAddress(empList.getAddress());
-			signup.setEmployeeType(empList.getEmployeeType());
-			signup.setGender(empList.getGender());
-		}*/
 	}
 
 }

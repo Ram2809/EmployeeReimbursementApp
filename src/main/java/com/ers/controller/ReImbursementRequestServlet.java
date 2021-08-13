@@ -29,9 +29,11 @@ public class ReImbursementRequestServlet extends HttpServlet {
 		Double reqAmount = Double.parseDouble(request.getParameter("reImbursementAmount"));
 		String reqDate = request.getParameter("reImbursementSubDate");
 		String reqStatus = request.getParameter("reImbursementStatus");
+		String reqActionDate=request.getParameter("reImbursementActionDate");
+		String reqRemarks=request.getParameter("reImbursementRemarks");
 		String reqDescription = request.getParameter("reImbursementDescription");
 		System.out.println(
-				reqId + " " + reqType + " " + reqAmount + " " + reqDate + " " + reqStatus + " " + reqDescription);
+				reqId + " " + reqType + " " + reqAmount + " " + reqDate + " " + reqStatus + " " + reqDescription+" "+reqActionDate+" "+reqRemarks);
 		ReimbursementRequest reimbursementRequest = new ReimbursementRequest();
 		reimbursementRequest.setReqId(reqId);
 		reimbursementRequest.setReqType(reqType);
@@ -39,6 +41,8 @@ public class ReImbursementRequestServlet extends HttpServlet {
 		reimbursementRequest.setReqDate(reqDate);
 		reimbursementRequest.setReqStatus(reqStatus);
 		reimbursementRequest.setReqDescription(reqDescription);
+		reimbursementRequest.setActionRemarks(reqRemarks);
+		reimbursementRequest.setReqActionDate(reqActionDate);
 		System.out.println(reimbursementRequest);
 		Cookie c[]=request.getCookies();
 		for(int i=0;i<c.length;i++)
@@ -47,22 +51,12 @@ public class ReImbursementRequestServlet extends HttpServlet {
 		}
 		String email=c[0].getValue();
 		ReimbursementRequestService reimbursementRequestServiceImpl = (ReimbursementRequestService) new ReimbursementRequestServiceImpl();
-		/*List<SignupEntity> getParticularUser=reimbursementRequestServiceImpl.getParticularUser(email);
-		Signup signup=new Signup();
-		for(SignupEntity empList:getParticularUser)
-		{
-			signup.setFirstName(empList.getFirstName());
-			signup.setLastName(empList.getLastName());
-			signup.setDateOfBirth(empList.getDateOfBirth());
-			signup.setAge(empList.getAge());
-			signup.setEmail(empList.getEmail());
-			signup.setContactNo(empList.getContactNo());
-			signup.setAddress(empList.getAddress());
-			signup.setEmployeeType(empList.getEmployeeType());
-			signup.setGender(empList.getGender());
-		}*/
 		boolean getStatus = reimbursementRequestServiceImpl.addReimbursementRequestDetails(reimbursementRequest,email);
 		System.out.println(getStatus);
+		if(getStatus)
+		{
+			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessRequest.html");
+		}
 	}
 
 }

@@ -6,11 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.Logger;
 
 import com.ers.model.Signup;
 import com.ers.service.SignupService;
@@ -18,12 +21,13 @@ import com.ers.service.SignupServiceImpl;
 
 public class SignupServlet extends HttpServlet {
 	static List<Signup> empList = new ArrayList<>();
-
+	static Logger logger=Logger.getLogger("SignupServlet.class");
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
+		logger.info("In sign up -> add method");
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
 		String dateOfBirth = request.getParameter("dateOfBirth");
@@ -33,8 +37,8 @@ public class SignupServlet extends HttpServlet {
 		String contactNo = request.getParameter("contactNo");
 		String address = request.getParameter("address");
 		String employeeType = request.getParameter("etype");
-		Cookie cookie=new Cookie("employeeType",employeeType);
-		response.addCookie(cookie);
+		//Cookie cookie=new Cookie("employeeType",employeeType);
+		//response.addCookie(cookie);
 		System.out.println(firstName + " " + lastName + " " + dateOfBirth + " " + age + " " + gender + " " + email + " "
 				+ contactNo + " " + address + " " + employeeType);
 		Signup signUp = new Signup();
@@ -50,6 +54,7 @@ public class SignupServlet extends HttpServlet {
 		SignupService signupServiceImpl = new SignupServiceImpl();
 		boolean getStatus = signupServiceImpl.addEmployeeDetails(signUp);
 		if (getStatus) {
+			logger.info("In login credential -> add method");
 			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/LoginCredential.html");
 
 		}

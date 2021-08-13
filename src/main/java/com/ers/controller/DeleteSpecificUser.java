@@ -39,8 +39,14 @@ public class DeleteSpecificUser extends HttpServlet {
 			signup.setAddress(empList.getAddress());
 			signup.setEmployeeType(empList.getEmployeeType());
 		}
+		String empType=signup.getEmployeeType();
+		System.out.println(empType);
 		getStatus=signupServiceImpl.deleteEmployeeDetails(signup);
 		System.out.println(getStatus);
+		if(getStatus)
+		{
+			response.sendRedirect("Manager.jsp");
+		}
 	}
 
 }

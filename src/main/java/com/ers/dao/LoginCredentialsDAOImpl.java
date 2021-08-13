@@ -17,8 +17,7 @@ public class LoginCredentialsDAOImpl implements LoginCredentialsDAO {
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			session.beginTransaction();
-			 session.saveOrUpdate(LoginCredentialsMapper.mapLoginCredentials(loginCredentials));
-			session.flush();
+			 session.save(LoginCredentialsMapper.mapLoginCredentials(loginCredentials));
 			session.getTransaction().commit();
 			System.out.println("Data inserted successfully!");
 			getStatus = true;

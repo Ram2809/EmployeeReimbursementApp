@@ -229,13 +229,15 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 	}
 
 	@Override
-	public boolean updateRequestStatus(String requestId, String managerAction) {
+	public boolean updateRequestStatus(String requestId, String managerAction,String reqActionDate,String reqActionRemarks) {
 		boolean getStatus = false;
 		Session session = HibernateUtil.getSessionFactory().openSession();
 		try {
 			session.beginTransaction();
-			Query query=session.createQuery("UPDATE ReimbursementRequestEntity SET reqStatus=:status WHERE reqId=:requestId");
+			Query query=session.createQuery("UPDATE ReimbursementRequestEntity SET reqStatus=:status,reqActionDate=:actionDate,reqActionRemarks=:actionRemarks WHERE reqId=:requestId");
 			query.setParameter("status",managerAction);
+			query.setParameter("actionDate",reqActionDate);
+			query.setParameter("actionRemarks", reqActionRemarks);
 			query.setParameter("requestId", requestId);
 			int count=query.executeUpdate();
 			getStatus=true;

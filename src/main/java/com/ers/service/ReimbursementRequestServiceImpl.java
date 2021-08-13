@@ -76,8 +76,8 @@ public class ReimbursementRequestServiceImpl implements ReimbursementRequestServ
 	}
 
 	@Override
-	public boolean updateRequestStatus(String requestId, String managerAction) {
-		return reimbursementRequestDAOImpl.updateRequestStatus(requestId, managerAction);
+	public boolean updateRequestStatus(String requestId, String managerAction,String reqActionDate,String reqActionRemarks) {
+		return reimbursementRequestDAOImpl.updateRequestStatus(requestId, managerAction,reqActionDate,reqActionRemarks);
 	}
 
 }

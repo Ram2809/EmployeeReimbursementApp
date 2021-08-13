@@ -30,19 +30,22 @@ public class ManagerUpdateRequestServlet extends HttpServlet {
 		out.println("<marquee><h1>Welcome" + " " + userName + "</H1></marquee>");
 		String requestId = request.getParameter("reqId");
 		String action = request.getParameter("managerAction");
+		String reqActionDate=request.getParameter("reqActionDate");
+		String reqActionRemarks=request.getParameter("reqActionRemarks");
 		if (action.equals("Approve")) {
 			managerAction = "Accepted";
 		} else {
 			managerAction = "Denied";
 		}
-		System.out.println(requestId + " " + managerAction);
+		System.out.println(requestId + " " + managerAction+" "+reqActionDate+" "+reqActionRemarks);
 		ReimbursementRequestService reimbursementRequestServiceImpl = new ReimbursementRequestServiceImpl();
-		getStatus = reimbursementRequestServiceImpl.updateRequestStatus(requestId, managerAction);
+		getStatus = reimbursementRequestServiceImpl.updateRequestStatus(requestId, managerAction,reqActionDate,reqActionRemarks);
 		System.out.println(getStatus);
 		if(getStatus)
 		{
 			out.println("<center>");
 			out.println("<h1>You Reviewed and Update the status of the Reimbursement Request!</h1>");
+			out.println("<img src='http://localhost:8080/EmployeeReimbursementApp/success.jpg'>");
 			out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
 			out.println("</center>");
 		}

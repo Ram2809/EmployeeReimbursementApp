@@ -27,6 +27,10 @@ public class ReimbursementRequestEntity {
 	private String reqStatus;
 	@Column(nullable = false)
 	private String reqDescription;
+	@Column(nullable = false)
+	private String reqActionDate;
+	@Column(nullable = false)
+	private String reqActionRemarks;
 
 	public ReimbursementRequestEntity() {
 		super();
@@ -88,11 +92,29 @@ public class ReimbursementRequestEntity {
 		this.userEmail = userEmail;
 	}
 
+	public String getReqActionDate() {
+		return reqActionDate;
+	}
+
+	public void setReqActionDate(String reqActionDate) {
+		this.reqActionDate = reqActionDate;
+	}
+
+	public String getReqActionRemarks() {
+		return reqActionRemarks;
+	}
+
+	public void setReqActionRemarks(String reqActionRemarks) {
+		this.reqActionRemarks = reqActionRemarks;
+	}
+
 	@Override
 	public String toString() {
 		return "ReimbursementRequestEntity [userEmail=" + userEmail + ", reqId=" + reqId + ", reqType=" + reqType
 				+ ", reqAmount=" + reqAmount + ", reqDate=" + reqDate + ", reqStatus=" + reqStatus + ", reqDescription="
-				+ reqDescription + "]";
+				+ reqDescription + ", reqActionDate=" + reqActionDate + ", reqActionRemarks=" + reqActionRemarks + "]";
 	}
+
+
 
 }

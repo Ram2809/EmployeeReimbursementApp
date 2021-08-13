@@ -9,13 +9,15 @@ public class ReimbursementRequest {
 	private String reqStatus;
 	private Integer loginId;
 	private String email;
+	private String reqActionDate;
+	private String actionRemarks;
 
 	public ReimbursementRequest() {
 		super();
 	}
 
-	/*public ReimbursementRequest(String reqId, String reqType, Double reqAmount, String reqDate, String reqDescription,
-			String reqStatus, Integer loginId) {
+	public ReimbursementRequest(String reqId, String reqType, Double reqAmount, String reqDate, String reqDescription,
+			String reqStatus, String reqActionDate, String actionRemarks) {
 		super();
 		this.reqId = reqId;
 		this.reqType = reqType;
@@ -23,8 +25,9 @@ public class ReimbursementRequest {
 		this.reqDate = reqDate;
 		this.reqDescription = reqDescription;
 		this.reqStatus = reqStatus;
-		this.loginId = loginId;
-	}*/
+		this.reqActionDate = reqActionDate;
+		this.actionRemarks = actionRemarks;
+	}
 
 	public String getReqId() {
 		return reqId;
@@ -74,11 +77,20 @@ public class ReimbursementRequest {
 		this.reqStatus = reqStatus;
 	}
 
-	@Override
-	public String toString() {
-		return "ReimbursementRequest [reqId=" + reqId + ", reqType=" + reqType + ", reqAmount=" + reqAmount
-				+ ", reqDate=" + reqDate + ", reqDescription=" + reqDescription + ", reqStatus=" + reqStatus
-				+ ", email=" + email + "]";
+	public String getReqActionDate() {
+		return reqActionDate;
+	}
+
+	public void setReqActionDate(String reqActionDate) {
+		this.reqActionDate = reqActionDate;
+	}
+
+	public String getActionRemarks() {
+		return actionRemarks;
+	}
+
+	public void setActionRemarks(String actionRemarks) {
+		this.actionRemarks = actionRemarks;
 	}
 
 	public String getEmail() {
@@ -97,6 +109,12 @@ public class ReimbursementRequest {
 		this.loginId = loginId;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "ReimbursementRequest [reqId=" + reqId + ", reqType=" + reqType + ", reqAmount=" + reqAmount
+				+ ", reqDate=" + reqDate + ", reqDescription=" + reqDescription + ", reqStatus=" + reqStatus
+				+ ", loginId=" + loginId + ", email=" + email + ", reqActionDate=" + reqActionDate + ", actionRemarks="
+				+ actionRemarks + "]";
+	}
 
 }

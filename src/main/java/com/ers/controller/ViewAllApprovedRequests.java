@@ -38,6 +38,8 @@ public class ViewAllApprovedRequests extends HttpServlet {
 			System.out.println(re.getReqAmount());
 			System.out.println(re.getReqStatus());
 			System.out.println(re.getReqDescription());
+			System.out.println(re.getReqActionDate());
+			System.out.println(re.getReqActionRemarks());
 		}
 		out.println("<table border='2'>");
 		out.println("<caption><h4>Approved Requests</h4></caption>");
@@ -50,6 +52,8 @@ public class ViewAllApprovedRequests extends HttpServlet {
 		out.println("<th>Request Amount</th>");
 		out.println("<th>Request Status</th>");
 		out.println("<th>Request Description</th>");
+		out.println("<th>Request Action Date</th>");
+		out.println("<th>Request Action remarks</th>");
 		out.println("</tr>");
 		for(ReimbursementRequestEntity re : allApprovedRequestsList)
 		{
@@ -62,6 +66,8 @@ public class ViewAllApprovedRequests extends HttpServlet {
 			out.println("<td>"+re.getReqAmount()+"</td>");
 			out.println("<td>"+re.getReqStatus()+"</td>");
 			out.println("<td>"+re.getReqDescription()+"</td>");
+			out.println("<td>"+re.getReqActionDate()+"</td>");
+			out.println("<td>"+re.getReqActionRemarks()+"</td>");
 			out.println("</tr");
 		}
 		out.println("</tr>");

@@ -30,5 +30,5 @@ public interface ReimbursementRequestDAO {
 
 	public List<ReimbursementRequestEntity> getDetailsById(String requestId);
 
-	public boolean updateRequestStatus(String requestId, String managerAction);
+	public boolean updateRequestStatus(String requestId, String managerAction,String reqActionDate,String reqActionRemarks);
 }

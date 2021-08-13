@@ -23,6 +23,8 @@ public class ReimbursementRequestMapper {
 		reimbursementRequestEntity.setReqDate(reimbursementRequest.getReqDate());
 		reimbursementRequestEntity.setReqStatus(reimbursementRequest.getReqStatus());
 		reimbursementRequestEntity.setReqDescription(reimbursementRequest.getReqDescription());
+		reimbursementRequestEntity.setReqActionDate(reimbursementRequest.getReqActionDate());
+		reimbursementRequestEntity.setReqActionRemarks(reimbursementRequest.getActionRemarks());
 		reimbursementRequestEntity.setUserEmail(signupEntity);
 		System.out.println(reimbursementRequestEntity);
 		

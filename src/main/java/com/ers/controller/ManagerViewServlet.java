@@ -42,7 +42,7 @@ public class ManagerViewServlet extends HttpServlet {
 		}
 		out.println("<form action='http://localhost:8080/EmployeeReimbursementApp/ManagerUpdateRequestServlet' method='GET'>");
 		out.println("<table border='2'>");
-		out.println("<caption>Reimbursement Request Details</caption>");
+		out.println("<caption><h2>Reimbursement Action Form</h2></caption>");
 		for(ReimbursementRequestEntity re : requestDetailsList)
 		{
 			out.println("<tr>");
@@ -86,6 +86,16 @@ public class ManagerViewServlet extends HttpServlet {
 			out.println("</td>");
 			out.println("</tr");
 			out.println("</tr>");
+			out.println("<tr>");
+			out.println("<th>Request Action Date</th>");
+			out.println("<td><input type='text' name='reqActionDate' ");
+			out.println("</td>");
+			out.println("</tr");
+			out.println("<tr>");
+			out.println("<th>Request Action Remarks</th>");
+			out.println("<td><input type='text' name='reqActionRemarks'");
+			out.println("</td>");
+			out.println("</tr");
 			out.println("<tr>");
 			out.println("<th>Manager Action</th>");
 			out.println("<td><select name='managerAction' >");

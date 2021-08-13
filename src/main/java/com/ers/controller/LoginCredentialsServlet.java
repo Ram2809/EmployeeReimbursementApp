@@ -38,5 +38,12 @@ public class LoginCredentialsServlet extends HttpServlet {
 				response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessRegisteration.html");
 			}
 		}
+		else
+		{
+			out.println("<center>");
+			out.println("<h1>Password and confirm password not same></h1>");
+			out.println("<a href='http://localhost:8080/EmployeeReimbursementApp/LoginCredential.html'><input type='submit' value='Go Back'></a>");
+			out.println("</center>");
+		}
 	}
 }

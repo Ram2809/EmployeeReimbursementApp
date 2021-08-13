@@ -25,26 +25,21 @@ public class ForgotPassWordServlet extends HttpServlet {
 		boolean getStatus = false;
 		System.out.println(userName + " " + passWord + " " + confirmPassword);
 		if (!passWord.equals(confirmPassword)) {
-			out.println("<head>");
-			out.println("<style>");
-			out.println("<link rel='stylesheet' href='boxModel.css'>");
-			out.println("</style>");
-			out.println("</head>");
-			out.println("<body>");
 			out.println("<center>");
 			out.println("<h1>Password and Confirm password not same!</h1>");
-			out.println("<input id='submitButton' type='submit' value='Continue'>");
+			out.println("<img src='C:\\Users\\RamkumarC\\Documents\\workspace-spring-tool-suite-4-4.11.0.RELEASE\\EmployeeReimbursementApp\\src\\main\\webapp\\failure.jpg'");
+			//out.println("<a href='forgotPassword.html'><input type='submit' value='Go To Home Page'></a>");
 			out.println("</center>");
-			out.println("</body>");
 		} else {
 			LoginService loginServiceImpl = new LoginServiceImpl();
 			getStatus = loginServiceImpl.updateForgotPassword(userName, passWord);
+			if (getStatus) {
+				response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessForgotPassword.html");
+			} else {
+				response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/FailureForgotPassword.html");
+			}
 		}
-		if (getStatus) {
-			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/SuccessForgotPassword.html");
-		} else {
-			response.sendRedirect("http://localhost:8080/EmployeeReimbursementApp/FailureForgotPassword.html");
-		}
+		
 	}
 
 }
