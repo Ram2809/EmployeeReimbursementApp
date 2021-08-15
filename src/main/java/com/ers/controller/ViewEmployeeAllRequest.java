@@ -46,9 +46,15 @@ public class ViewEmployeeAllRequest extends HttpServlet {
 			
 			out.println("<option name='id'> "+re.getReqId());
 		}*/
-		
+		out.println("<head>");
+		out.println("<meta name='viewport' content=width'device-width, initial-scale=1'>");
+		out.println("<link rel='stylesheet'	href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>");
+		out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>");
+		out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>");
+		out.println("</head>");
+		out.println("<body>");
 		out.println("</select></form>");
-		out.println("<table border='2'>");
+		out.println("<table class='table table-striped' border='2'>");
 		out.println("<caption><h1>Employee Requests</h1></caption>");
 		out.println("<tr>");
 		out.println("<th>Request Id</th>");

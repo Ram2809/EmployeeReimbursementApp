@@ -22,11 +22,9 @@ public class ViewProfileServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		Cookie[] c=request.getCookies();
 		String userName=c[0].getValue();
-		out.println("<body>");
-		out.println("<center>");
-		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
 		SignupService signupServiceImpl=new SignupServiceImpl();
 		List<SignupEntity> employeeList=signupServiceImpl.getEmployeeDetails(userName);
+		request.setAttribute("userList", employeeList);
 		for(SignupEntity elist : employeeList)
 		{
 			System.out.println(elist.getFirstName());
@@ -39,7 +37,24 @@ public class ViewProfileServlet extends HttpServlet {
 			System.out.println(elist.getAddress());
 			System.out.println(elist.getEmployeeType());
 		}
-		out.println("<table border='2'>");
+		out.println("<head>");
+		out.println("<meta name='viewport' content=width'device-width, initial-scale=1'>");
+		out.println("<link rel='stylesheet'	href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>");
+		out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>");
+		out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>");
+		out.println("<style>");
+		out.println("table{");
+		out.println("max-width:700px");
+		out.println("margin:auto");
+		out.println("border:150px");
+		out.println("padding:50px");
+		out.println("}");
+		out.println("</style");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<center>");
+		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
+		out.println("<table class='table table-hover'>");
 		out.println("<caption><h4>Personal Information</h4></caption>");
 		for(SignupEntity elist : employeeList)
 		{

@@ -22,21 +22,24 @@
 	background-color: rgb(119, 226, 221);
 	text-align: left;
 }
+.Signup
+{
+	background: url('signup_background.jpg') no-repeat center fixed;     
+    background-size: cover;
+}
+.Button
+{
+}
 </style>
-<!--<script>
-	function goToLoginCredential() {
-		window.location.href = "LoginCredential.html";
-	}
-</script>  -->
 </head>
-<body>
+<body class="Signup">
 	<center>
-		<div class="Signup">
-			<h2>Sign up</h2>
+		<div>
+			<h1><b><i>Registeration Form</i></b></h1>
 			<form
 				action="http://localhost:8080/EmployeeReimbursementApp/SignupServlet"
 				method="GET">
-				<table class="table table-hover">
+				<table class="table table-hover" style="background-color:rgb(175, 187, 186)">
 					<tr>
 						<th>First name</th>
 						<td><Input id="fname" type="text" name="firstName"
@@ -92,7 +95,7 @@
 						</select></td>
 					</tr>
 					<tr>
-						<td><input id="submitButton" type="submit" value="Register"></td>
+						<td><center><input id="submitButton" type="submit" value="Register"></center>
 						<td><input id="resetButton" type="reset" value="Reset"></td>
 					</tr>
 				</table>

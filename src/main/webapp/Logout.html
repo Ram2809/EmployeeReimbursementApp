@@ -1,21 +1,40 @@
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Logout</title>
-    </head>
-    <body>
-        <center>
-            <div >
-        <h1>Logged out Sucessfully!</h1>
-        <textarea name="feedback" rows="5" cols="50" placeholder="Enter your feedback"></textarea>
-    </div>
-        <input type="submit" value="Go Back to Login Page" onclick="goToLoginPage()"></button>
+        <style>
+            .logout
+            {
+            max-width: 700px;
+  			margin: auto;
+            border:100px;
+            padding:50px;
+            background: url('logout.jpg') no-repeat center fixed;     
+    		background-size: cover;
+            }
+            #submitButton
+		{
+			background-color: rgb(214, 210, 157);
+		}
+        </style>
         <script>
             function goToLoginPage()
             {
-                window.location.href="http://localhost:8080/EmployeeReimbursementApp/Login.html";
+                window.location.href="Login.html";
             }
         </script>
+    </head>
+    <body class="logout">
+        <center>
+            <div >
+        <h1><b><i>Logged out Sucessfully!</i></b></h1>
+        <form>
+        <textarea name="feedback" rows="5" cols="50" placeholder="Enter your feedback"></textarea>
+    </div>
+        <input id="submitButton" type="submit" value="Go Back to Login Page" onclick="goToLoginPage()"></button>
+    </form>
+        
     </center>
     </body>
 </html>

@@ -17,10 +17,12 @@
         }
         .loginForm
         {
-            width:50%;
-            margin:100px;
-            border:150px;
+        	max-width: 700px;
+  			margin: auto;
+            border:100px;
             padding:50px;
+            background: url('login-background.jpg') no-repeat center fixed;     
+    		background-size: cover;
         }
 		a:visited{
 			background-color:cyan;
@@ -39,15 +41,16 @@
 		}
 	</script>
 </head>
-<body>
+<body class="loginForm">
     <center>
-	<div class="loginForm">	
-        <h2>Sign in Page</h2>
+	<div>	
+        <h1><b><i>Login Page</i></b></h1>
 		<form action="http://localhost:8080/EmployeeReimbursementApp/LoginServlet" method="GET">
+		<center>
 			<table class="table table-hover">
 				<tr>
 					<th>User Name</th>
-					<td><input type="text" name="uname" placeholder="Enter your email or contact number" required></td>
+					<td><input type="email" name="uname" placeholder="Enter your email" required></td>
 				</tr>
 				<tr>
 					<th>Password</th>
@@ -58,6 +61,7 @@
 					<td><input type="submit" value="Forgot Password" onclick="goToForgotPassword()"></td>
 				</tr>
 			</table>
+			</center>
 		</form>
         <p id="NewAccount">New to Employee Reimbursement System? <a href="http://localhost:8080/EmployeeReimbursementApp/SignUp.html">Create an Account</a></p>
 	</div>
