@@ -80,4 +80,10 @@ public class ReimbursementRequestServiceImpl implements ReimbursementRequestServ
 		return reimbursementRequestDAOImpl.updateRequestStatus(requestId, managerAction,reqActionDate,reqActionRemarks);
 	}
 
+	@Override
+	public List<String> getAcceptedRequestIds(String userName) {
+		// TODO Auto-generated method stub
+		return reimbursementRequestDAOImpl.getAcceptedRequestIds(userName);
+	}
+
 }

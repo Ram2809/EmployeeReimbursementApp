@@ -10,18 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ers.entity.SignupEntity;
 import com.ers.service.ReimbursementRequestService;
 import com.ers.service.ReimbursementRequestServiceImpl;
-import com.ers.service.SignupService;
-import com.ers.service.SignupServiceImpl;
-
 
 /**
- * Servlet implementation class ManagerActionServlet
+ * Servlet implementation class GetRequestIdsServlet
  */
-public class ManagerActionServlet extends HttpServlet {
-	
+public class GetRequestIdsServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
@@ -31,23 +26,24 @@ public class ManagerActionServlet extends HttpServlet {
 		out.println("<center>");
 		out.println("<marquee><h1>Welcome" + " " + userName + "</H1></marquee>");
 		ReimbursementRequestService reimbursementRequestServiceImpl=new ReimbursementRequestServiceImpl();
-		List<String> requestIdList=reimbursementRequestServiceImpl.getRequestIds();
+		List<String> requestIdList=reimbursementRequestServiceImpl.getAcceptedRequestIds(userName);
 		for(String idList:requestIdList)
 		{
 			System.out.println(idList);
 		}
 		out.println("<center>");
-		out.println("<H1>Approve or Deny Request</H1>");
-		out.println("<form action='http://localhost:8080/EmployeeReimbursementApp/ManagerViewServlet' method='GET'>");
+		out.println("<H1>Reimbursement Request IDs</H1>");
+		out.println("<form action='http://localhost:8080/EmployeeReimbursementApp/PrintReimbursementReceipt' method='GET'>");
 		out.println("Reimbursement Request IDs:<select name='reqId'>");
 		for(String idList:requestIdList)
 		{
+
 			out.println("<option name='id'>"+idList+"");
 		}
 		out.println("<select><br>");
 		out.println("<input type='submit' value='Select the Request ID'>");
 		out.println("</form>");
-		out.println("<a href='Manager.jsp'><input type='submit' value='Go To Home Page'></a>");
+		out.println("<a href='employee.jsp'><input type='submit' value='Go To Home Page'></a>");
 		out.println("</center>");
 	}
 

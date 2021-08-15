@@ -160,6 +160,30 @@
   	<description></description>
   	<servlet-class>com.ers.controller.ManagerUpdateRequestServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>PrintReimbursementReceipt</servlet-name>
+  	<display-name>PrintReimbursementReceipt</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.PrintReimbursementReceipt</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GetRequestIdsServlet</servlet-name>
+  	<display-name>GetRequestIdsServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.GetRequestIdsServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SuccessServlet</servlet-name>
+  	<display-name>SuccessServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.SuccessPrintServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>PrintSuccessReceipt</servlet-name>
+  	<display-name>PrintSuccessReceipt</display-name>
+  	<description></description>
+  	<servlet-class>com.ers.controller.PrintSuccessReceipt</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>SignupServlet</servlet-name>
   	<url-pattern>/SignupServlet</url-pattern>
@@ -263,5 +287,21 @@
   <servlet-mapping>
   	<servlet-name>ManagerUpdateRequestServlet</servlet-name>
   	<url-pattern>/ManagerUpdateRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PrintReimbursementReceipt</servlet-name>
+  	<url-pattern>/PrintReimbursementReceipt</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GetRequestIdsServlet</servlet-name>
+  	<url-pattern>/GetRequestIdsServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SuccessServlet</servlet-name>
+  	<url-pattern>/SuccessServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>PrintSuccessReceipt</servlet-name>
+  	<url-pattern>/PrintSuccessReceipt</url-pattern>
   </servlet-mapping>
 </web-app>

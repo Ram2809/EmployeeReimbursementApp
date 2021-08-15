@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="com.ers.entity.SignupEntity" %>
-<%@page import="java.util.List" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,27 +51,27 @@ body {
 .right {
 	flex: 65%;
 	padding: 15px;
+	background: url('employee.png') no-repeat center fixed;
+	background-size: cover;
 }
 
 .left h2 {
 	padding-left: 8px;
 }
-
-#welcome {
-	float: right;
-}
 </style>
 </head>
 <body>
-	<header>
+	<header style="background-color: rgb(27, 154, 163);">
 		<center>
-			<h1>
-				<b><i>Employee Section</i></b>
-			</h1>
+			<marquee>
+				<h1 style="color: white">
+					<b><i>Employee Section</i></b>
+				</h1>
+			</marquee>
 		</center>
 	</header>
 	<div class="row">
-		<div class="left" style="background-color: rgb(47, 85, 85);">
+		<div class="left" style="background-color: rgb(23, 109, 131);">
 			<ul id="myMenu">
 				<li><a href="ReimbursementRequest.html">Submit New Request</a></li>
 				<li><a
@@ -88,12 +86,15 @@ body {
 				<li><a
 					href="http://localhost:8080/EmployeeReimbursementApp/ViewEmployeeAllRequest">View
 						All Requests</a></li>
+
+				<li><a
+					href="http://localhost:8080/EmployeeReimbursementApp/GetRequestIdsServlet">Get Reimbursement Receipt</a></li>
 				<li><a
 					href="http://localhost:8080/EmployeeReimbursementApp/UpdateProfileServlet">Update
 						Profile</a></li>
-				<li><a
-					href="http://localhost:8080/EmployeeReimbursementApp/ViewProfileServlet" target="_self">View
-						Profile</a></li>
+				<li class="active"><a
+					href="http://localhost:8080/EmployeeReimbursementApp/ViewProfileServlet"
+					target="_self">View Profile</a></li>
 				<li><a
 					href="http://localhost:8080/EmployeeReimbursementApp/ResetPassWord.html">Reset
 						Password</a></li>
@@ -101,22 +102,32 @@ body {
 					href="http://localhost:8080/EmployeeReimbursementApp/Logout.html">Logout</a></li>
 			</ul>
 		</div>
-
+		<%
+		Cookie[] arr = request.getCookies();
+		String userName = arr[0].getValue();
+		%>
 		<div class="right" style="background-color: #ddd;">
-			<h4 id="welcome">
-				<b>Welcome <a href="http://localhost:8080/EmployeeReimbursementApp/ViewProfileServlet">User</a>
-				</u></b>
-			</h4>
-			<!String username = (String) request.getAttribute("attributeName");
-out.println(username);e); %>
+			<center>
+				<h2 id="welcome">
+					<b><i>Welcome <%
+					out.println(userName);
+					%></i></b>
+					</h4>
+			</center>
 
 		</div>
 	</div>
-	<footer>
+	<footer style="background-color: rgb(27, 154, 163);">
 		<center>
 			<p>
 				<b>Contact us</b>
 			</p>
+			<p>
+				<%
+				out.println(userName);
+				%>
+			</p>
+		</center>
 
 		</center>
 	</footer>

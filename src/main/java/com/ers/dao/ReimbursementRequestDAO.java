@@ -27,6 +27,7 @@ public interface ReimbursementRequestDAO {
 	public List<ReimbursementRequestEntity> getAllDeniedRequests();
 
 	public List<String> getRequestIds();
+	public List<String> getAcceptedRequestIds(String userName);
 
 	public List<ReimbursementRequestEntity> getDetailsById(String requestId);
 

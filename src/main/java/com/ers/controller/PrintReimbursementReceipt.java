@@ -15,9 +15,10 @@ import com.ers.service.ReimbursementRequestService;
 import com.ers.service.ReimbursementRequestServiceImpl;
 
 /**
- * Servlet implementation class ManagerViewServlet
+ * Servlet implementation class PrintReimbursementReceipt
  */
-public class ManagerViewServlet extends HttpServlet {
+public class PrintReimbursementReceipt extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
@@ -28,14 +29,17 @@ public class ManagerViewServlet extends HttpServlet {
 		ReimbursementRequestService reimbursementRequestServiceImpl=new ReimbursementRequestServiceImpl();
 		List<ReimbursementRequestEntity> requestDetailsList=reimbursementRequestServiceImpl.getDetailsById(requestId);
 		for (ReimbursementRequestEntity re : requestDetailsList) {
-			System.out.println(re.getReqId());
-			System.out.println(re.getUserEmail().getEmail());
 			System.out.println(re.getUserEmail().getFirstName());
+			System.out.println(re.getUserEmail().getLastName());
+			System.out.println(re.getUserEmail().getEmail());
+			System.out.println(re.getReqId());
 			System.out.println(re.getReqType());
 			System.out.println(re.getReqDate());
 			System.out.println(re.getReqAmount());
-			System.out.println(re.getReqStatus());
 			System.out.println(re.getReqDescription());
+			System.out.println(re.getReqStatus());
+			System.out.println(re.getReqActionDate());
+			System.out.println(re.getReqActionRemarks());
 		}
 		out.println("<head>");
 		out.println("<meta name='viewport' content=width'device-width, initial-scale=1'>");
@@ -54,14 +58,19 @@ public class ManagerViewServlet extends HttpServlet {
 		out.println("<body>");
 		out.println("<center>");
 		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
-		out.println("<form action='http://localhost:8080/EmployeeReimbursementApp/ManagerUpdateRequestServlet' method='GET'>");
+		out.println("<form action='http://localhost:8080/EmployeeReimbursementApp/PrintSuccessReceipt' method='GET'>");
 		out.println("<table class='table table-hover'>");
 		out.println("<caption><center><h4><b><i>Reimbursement Action Form</i></b></h4></center></caption>");
 		for(ReimbursementRequestEntity re : requestDetailsList)
 		{
 			out.println("<tr>");
-			out.println("<th>Request ID</th>");
-			out.println("<td><input type='text' name='reqId' value="+re.getReqId());
+			out.println("<th>First Name</th>");
+			out.println("<td><input type='text' name='empName' value="+re.getUserEmail().getFirstName());
+			out.println("</td>");
+			out.println("</tr");
+			out.println("<tr>");
+			out.println("<th>Last Name</th>");
+			out.println("<td><input type='text' name='empName' value="+re.getUserEmail().getLastName());
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
@@ -70,8 +79,8 @@ public class ManagerViewServlet extends HttpServlet {
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
-			out.println("<th>Employee Name</th>");
-			out.println("<td><input type='text' name='empName' value="+re.getUserEmail().getFirstName());
+			out.println("<th>Request ID</th>");
+			out.println("<td><input type='text' name='reqId' value="+re.getReqId());
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
@@ -80,7 +89,7 @@ public class ManagerViewServlet extends HttpServlet {
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
-			out.println("<th>Request Date</th>");
+			out.println("<th>Request Submitted Date</th>");
 			out.println("<td><input type='text' name='reqDate' value="+re.getReqDate());
 			out.println("</td>");
 			out.println("</tr");
@@ -95,31 +104,12 @@ public class ManagerViewServlet extends HttpServlet {
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
-			out.println("<th>Request Description</th>");
-			out.println("<td><input type='text' name='reqDescription' value="+re.getReqDescription());
-			out.println("</td>");
-			out.println("</tr");
-			out.println("</tr>");
-			out.println("<tr>");
-			out.println("<th>Request Action Date</th>");
-			out.println("<td><input type='text' name='reqActionDate' ");
+			out.println("<th>Request Approved Date</th>");
+			out.println("<td><input type='text' name='reqActionDate' value="+re.getReqActionDate());
 			out.println("</td>");
 			out.println("</tr");
 			out.println("<tr>");
-			out.println("<th>Request Action Remarks</th>");
-			out.println("<td><input type='text' name='reqActionRemarks'");
-			out.println("</td>");
-			out.println("</tr");
-			out.println("<tr>");
-			out.println("<th>Manager Action</th>");
-			out.println("<td><select name='managerAction' >");
-			out.println("<option value='Approve'>Approve");
-			out.println("<option value='Deny'>Deny");
-			out.println("</select>");
-			out.println("</td>");
-			out.println("</tr");
-			out.println("<tr>");
-			out.println("<td colspan='2'><center><input id='submitButton' type='submit' value='Submit'></center>");
+			out.println("<td colspan='2'><center><input id='submitButton' type='submit' value='Print Receipt' onclick='window.print()'></center>");
 			out.println("</td>");
 			out.println("</tr>");
 		}
@@ -128,7 +118,6 @@ public class ManagerViewServlet extends HttpServlet {
 		out.println("</center>");
 		out.println("</form>");
 		out.println("</body>");
-		
 	}
 
 }

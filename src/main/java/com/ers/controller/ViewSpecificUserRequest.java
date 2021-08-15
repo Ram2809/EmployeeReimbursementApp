@@ -22,9 +22,6 @@ public class ViewSpecificUserRequest extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 		String userName=request.getParameter("userName");
-		out.println("<body>");
-		out.println("<center>");
-		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
 		ReimbursementRequestService reimbursementRequestServiceImpl = (ReimbursementRequestService) new ReimbursementRequestServiceImpl();
 		List<ReimbursementRequestEntity> allRequestList =reimbursementRequestServiceImpl.getParticularUserAllRequests(userName);
 		for(ReimbursementRequestEntity re : allRequestList)
@@ -40,9 +37,25 @@ public class ViewSpecificUserRequest extends HttpServlet {
 			System.out.println(re.getReqActionRemarks());
 		}
 		
-		out.println("</select></form>");
-		out.println("<table border='2'>");
-		out.println("<caption><h4>Employee Requests</h4></caption>");
+		out.println("<head>");
+		out.println("<meta name='viewport' content=width'device-width, initial-scale=1'>");
+		out.println("<link rel='stylesheet'	href='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css'>");
+		out.println("<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>");
+		out.println("<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js'></script>");
+		out.println("<style>");
+		out.println("table{");
+		out.println("max-width:700px");
+		out.println("margin:auto");
+		out.println("border:150px");
+		out.println("padding:50px");
+		out.println("}");
+		out.println("</style");
+		out.println("</head>");
+		out.println("<body>");
+		out.println("<center>");
+		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
+		out.println("<table class='table table-hover'>");
+		out.println("<caption><center><h4><b><i>Employee Reimbursement Requests</i></b></h4></center></caption>");
 		out.println("<tr>");
 		out.println("<th>Request Id</th>");
 		out.println("<th>User Name</th>");

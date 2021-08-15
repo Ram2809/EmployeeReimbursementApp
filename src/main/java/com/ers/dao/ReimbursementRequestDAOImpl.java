@@ -253,4 +253,24 @@ public class ReimbursementRequestDAOImpl implements ReimbursementRequestDAO {
 		return getStatus;
 	}
 
+	@Override
+	public List<String> getAcceptedRequestIds(String userName) {
+		List<String> allAcceptedRequestIdList = new ArrayList<>();
+		Session session = HibernateUtil.getSessionFactory().openSession();
+		try {
+			Query query = session
+					.createQuery("SELECT r.reqId FROM ReimbursementRequestEntity r where reqStatus=:status and email=:userId");
+			query.setParameter("status", "Accepted");
+			query.setParameter("userId", userName);
+			allAcceptedRequestIdList = query.list();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			if (session != null) {
+				session.close();
+			}
+		}
+		return allAcceptedRequestIdList;
+	}
+
 }
