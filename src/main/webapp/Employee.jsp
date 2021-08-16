@@ -109,9 +109,7 @@ body {
 		<div class="right" style="background-color: #ddd;">
 			<center>
 				<h2 id="welcome">
-					<b><i>Welcome <%
-					out.println(userName);
-					%></i></b>
+					<b><i>Welcome User</i></b>
 					</h4>
 			</center>
 
