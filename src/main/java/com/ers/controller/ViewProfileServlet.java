@@ -55,7 +55,7 @@ public class ViewProfileServlet extends HttpServlet {
 		out.println("<center>");
 		out.println("<marquee><h1>Welcome"+" "+userName+"</H1></marquee>");
 		out.println("<table class='table table-hover'>");
-		out.println("<caption><h4>Personal Information</h4></caption>");
+		out.println("<caption><center><h4><b><i>Personal Information</i></b></h4></center></caption>");
 		for(SignupEntity elist : employeeList)
 		{
 			out.println("<tr>");
